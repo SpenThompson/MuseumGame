@@ -267,10 +267,11 @@ MonoBehaviour:
   _Velocity: 0
   _MaxVelocity: 6
   _Acc: 0
-  _AccSpeed: 0.2
+  _AccSpeed: 0.25
   _MaxAcc: 2
   _MinAcc: -2
-  _Deceleration: 0.5
+  _Deceleration: 0.4
+  jumpForce: 350
 --- !u!50 &1000257560
 Rigidbody2D:
   serializedVersion: 4

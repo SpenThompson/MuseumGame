@@ -16,10 +16,11 @@ public class movement : MonoBehaviour
     public float _MaxAcc = 1.0f;
     public float _MinAcc = -1.0f;
     public float _Deceleration = 2f;
+    public float jumpForce = 350;
+
     // Start is called before the first frame update
     void Start()
     {
-        
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -62,6 +63,13 @@ public class movement : MonoBehaviour
         }
 
         rb2d.velocity = new Vector2(_Velocity, rb2d.velocity.y);
+
+        if (Input.GetKeyDown("space") && !jumping)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(new Vector2(0, jumpForce));
+            jumping = true;
+        }
     }
 
     private void acceleration()
@@ -90,7 +98,7 @@ public class movement : MonoBehaviour
         {
             _Velocity += _Deceleration;
         }
-        if (_Velocity < 0.001 && _Velocity > -0.001)
+        if (_Velocity < _Deceleration && _Velocity > -_Deceleration)
         {
             _Velocity = 0;
         }
@@ -102,5 +110,10 @@ public class movement : MonoBehaviour
         Vector3 scaler = transform.localScale;
         scaler.x *= -1;
         transform.localScale = scaler;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        jumping = false;
     }
 }
