@@ -1977,6 +1977,7 @@ MonoBehaviour:
   canvas: {fileID: 1530147023}
   spriteToFade: {fileID: 874186942}
   events: {fileID: 1051066022}
+  player: {fileID: 1370635947}
   sceneToLoad: 
 --- !u!4 &637676178
 Transform:
@@ -2237,6 +2238,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1370635947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 374150667840124763, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
+  m_PrefabInstance: {fileID: 590469919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1506634817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,6 +4124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Tower
+  whereTo: {x: -8.16, y: -1.31, z: 0}
 --- !u!19719996 &1728623980
 TilemapCollider2D:
   m_ObjectHideFlags: 0
