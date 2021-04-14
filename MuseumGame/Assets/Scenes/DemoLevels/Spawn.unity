@@ -4124,7 +4124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Tower
-  whereTo: {x: -8.16, y: -1.31, z: 0}
+  whereTo: {x: -8.24, y: -11.18, z: 0}
 --- !u!19719996 &1728623980
 TilemapCollider2D:
   m_ObjectHideFlags: 0
