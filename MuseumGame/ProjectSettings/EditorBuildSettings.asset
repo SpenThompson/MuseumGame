@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoLevels/EnemyTunnel.unity
     guid: 5481120a0059b444faf3f59b273cdadd
+  - enabled: 1
+    path: Assets/Scenes/DemoLevels/PathToBoss.unity
+    guid: 2acb96c6953284d3f96eb5e26ea0e27f
   m_configObjects: {}

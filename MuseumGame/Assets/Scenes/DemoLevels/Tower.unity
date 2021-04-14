@@ -3548,8 +3548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bd09e5b49bf4584bee75d619e80b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: 
-  whereTo: {x: 0, y: 0, z: 0}
+  LevelName: PathToBoss
+  whereTo: {x: -4.13, y: -1.23, z: 0}
 --- !u!483693784 &1746136371
 TilemapRenderer:
   m_ObjectHideFlags: 0
