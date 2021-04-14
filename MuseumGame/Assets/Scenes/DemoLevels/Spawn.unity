@@ -1977,7 +1977,7 @@ MonoBehaviour:
   canvas: {fileID: 1530147023}
   spriteToFade: {fileID: 874186942}
   events: {fileID: 1051066022}
-  sceneToLoad: RouteToTower
+  sceneToLoad: 
 --- !u!4 &637676178
 Transform:
   m_ObjectHideFlags: 0
