@@ -11,7 +11,10 @@ public class Health : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-
+        if (collider2D.gameObject.CompareTag("EnemyProjectile"))
+        {
+            DamagePlayer(10);
+        }
     }
 
     // Start is called before the first frame update
