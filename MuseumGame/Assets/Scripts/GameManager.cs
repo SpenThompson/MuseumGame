@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject canvas;
     public GameObject spriteToFade;
     public GameObject events;
+    public GameObject player;
 
     public string sceneToLoad = "";
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(canvas);
             DontDestroyOnLoad(events);
+            DontDestroyOnLoad(player);
 
         }
         else
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             Destroy(canvas);
             Destroy(events);
-
+            DontDestroyOnLoad(player);
         }
     }
     // Start is called before the first frame update
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if (sceneToLoad != "")
         {
-            LoadLevel(sceneToLoad);
+            LoadLevel(sceneToLoad, new Vector3(0,0,0));
         }
     }
 
@@ -46,13 +48,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void LoadLevel(string levelName)
+    public void LoadLevel(string levelName, Vector3 whereTo)
     {
         StartCoroutine(LerpFunction(Color.black, 0.25f));
-        StartCoroutine(LoadSceneAsync(levelName));
+        StartCoroutine(LoadSceneAsync(levelName, whereTo));
     }
 
-    IEnumerator LoadSceneAsync(string scene)
+    IEnumerator LoadSceneAsync(string scene, Vector3 whereTo)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+        player.transform.position = whereTo;
     }
 
     IEnumerator LerpFunction(Color endValue, float duration)

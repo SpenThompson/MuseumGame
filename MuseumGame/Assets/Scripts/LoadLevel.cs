@@ -5,6 +5,7 @@ using UnityEngine;
 public class LoadLevel : MonoBehaviour
 {
     public string LevelName;
+    public Vector3 whereTo;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class LoadLevel : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.LoadLevel(LevelName);
+            GameManager.Instance.LoadLevel(LevelName, whereTo);
         }
     }
 }
