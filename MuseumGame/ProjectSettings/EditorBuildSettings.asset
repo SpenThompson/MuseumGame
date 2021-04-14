@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DemoLevels/Tower.unity
+    guid: 2c6a0b307e5064fd6afdabeb1ee26bad
+  - enabled: 1
+    path: Assets/Scenes/DemoLevels/RouteToTower.unity
+    guid: a82a8eb3bfdb144e192f6fe10da37799
+  - enabled: 1
+    path: Assets/Scenes/DemoLevels/Spike Scene.unity
+    guid: f27baac7e3deb43c6966acaafbb08d1a
+  - enabled: 1
+    path: Assets/Scenes/DemoLevels/EnemyTunnel.unity
+    guid: 5481120a0059b444faf3f59b273cdadd
   m_configObjects: {}
