@@ -2424,7 +2424,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2135585597343286014, guid: 4b2a04fdbe0ef4d8da8f90eaca817cd1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a94f88a99bc4b47eab866de27ee69341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2461,8 +2461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3405314fa73da438982268d433fbbc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &219367238
-PolygonCollider2D:
+--- !u!61 &219367238
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2478,41 +2478,15 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8828125, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.8828125, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.4375, y: -0.265625}
-      - {x: 0.44140625, y: -0.2578125}
-      - {x: 0.44140625, y: 0.2578125}
-      - {x: 0.4375, y: 0.265625}
-      - {x: 0.390625, y: 0.29296875}
-      - {x: 0.36328125, y: 0.30859375}
-      - {x: 0.26171875, y: 0.3671875}
-      - {x: 0.21484375, y: 0.39453125}
-      - {x: 0.16015625, y: 0.42578125}
-      - {x: 0.05859375, y: 0.484375}
-      - {x: 0.02734375, y: 0.5}
-      - {x: -0.03125, y: 0.5}
-      - {x: -0.05859375, y: 0.484375}
-      - {x: -0.1875, y: 0.41015625}
-      - {x: -0.36328125, y: 0.30859375}
-      - {x: -0.4375, y: 0.265625}
-      - {x: -0.44140625, y: 0.2578125}
-      - {x: -0.44140625, y: -0.2578125}
-      - {x: -0.4375, y: -0.265625}
-      - {x: -0.31640625, y: -0.3359375}
-      - {x: -0.26171875, y: -0.3671875}
-      - {x: -0.21484375, y: -0.39453125}
-      - {x: -0.11328125, y: -0.453125}
-      - {x: -0.03125, y: -0.5}
-      - {x: 0.03125, y: -0.5}
-      - {x: 0.0859375, y: -0.46875}
-      - {x: 0.2421875, y: -0.37890625}
+  serializedVersion: 2
+  m_Size: {x: 1.28, y: 1.28}
+  m_EdgeRadius: 0
 --- !u!1 &563510750
 GameObject:
   m_ObjectHideFlags: 0
