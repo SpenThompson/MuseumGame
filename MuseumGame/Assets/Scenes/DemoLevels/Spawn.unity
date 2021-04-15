@@ -1980,7 +1980,7 @@ MonoBehaviour:
   player: {fileID: 1370635947}
   obtainedPowerups: 
   powerupStatus: 
-  sceneToLoad: 
+  sceneToLoad: BossRoom
 --- !u!4 &637676178
 Transform:
   m_ObjectHideFlags: 0

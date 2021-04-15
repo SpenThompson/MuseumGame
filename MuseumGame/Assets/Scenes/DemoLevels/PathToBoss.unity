@@ -8185,8 +8185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bd09e5b49bf4584bee75d619e80b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: Tower
-  whereTo: {x: 3.19, y: -11.17, z: 0}
+  LevelName: BossRoom
+  whereTo: {x: -8.24, y: -2.1, z: 0}
 --- !u!19719996 &389448434
 TilemapCollider2D:
   m_ObjectHideFlags: 0
