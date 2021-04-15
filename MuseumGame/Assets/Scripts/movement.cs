@@ -8,6 +8,7 @@ public class movement : MonoBehaviour
     private bool jumping = false;
     private bool faceRight = true;
     private Rigidbody2D rb2d;
+    private Animator animator;
 
     public float _Velocity = 0.0f;
     public float _MaxVelocity = 1.0f;
@@ -22,6 +23,7 @@ public class movement : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class movement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("horizontal", horizontal);
 
         if (horizontal < 0)
         {

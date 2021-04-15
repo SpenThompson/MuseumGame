@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: 6d9d4073bdd0c8e4493ef71737f810e3
+guid: 1729f180fd26be543921d7aeaed5bddb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3414590551313872308
-    second: Protagonist Run Cycle_0
+      213: -2144373788310312413
+    second: Protagonist Idle_0
   - first:
-      213: -9078287128096680265
-    second: Protagonist Run Cycle_1
+      213: 4842739590913806068
+    second: Protagonist Idle_1
   - first:
-      213: 7895595074744493000
-    second: Protagonist Run Cycle_2
+      213: 8040400591142469610
+    second: Protagonist Idle_2
   - first:
-      213: -5715771815500869336
-    second: Protagonist Run Cycle_3
+      213: -4686549727531618400
+    second: Protagonist Idle_3
   - first:
-      213: -3918516384220020871
-    second: Protagonist Run Cycle_4
+      213: -8247872170833017174
+    second: Protagonist Idle_4
   - first:
-      213: -959615308757023407
-    second: Protagonist Run Cycle_5
+      213: -915340342232657548
+    second: Protagonist Idle_5
   - first:
-      213: -5290080247100859323
-    second: Protagonist Run Cycle_6
+      213: 8433492481283023670
+    second: Protagonist Idle_6
   - first:
-      213: 4841072226229164717
-    second: Protagonist Run Cycle_7
-  - first:
-      213: -5051691819673034895
-    second: Protagonist Run Cycle_8
-  - first:
-      213: -5753741807421615432
-    second: Protagonist Run Cycle_9
+      213: -1912509637634623933
+    second: Protagonist Idle_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -62,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -98,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,70 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Protagonist Run Cycle_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3840
-        width: 1280
-        height: 1280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b5f770e300136f20800000000000000
-      internalID: 3414590551313872308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Protagonist Run Cycle_1
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 3840
-        width: 1280
-        height: 1280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b6dbc0b4f1730280800000000000000
-      internalID: -9078287128096680265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Protagonist Run Cycle_2
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 3840
-        width: 1280
-        height: 1280
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c3287843e9c29d60800000000000000
-      internalID: 7895595074744493000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Protagonist Run Cycle_3
+      name: Protagonist Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -210,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82191e731df7da0b0800000000000000
-      internalID: -5715771815500869336
+      spriteID: 32aea12a667ad32e0800000000000000
+      internalID: -2144373788310312413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_4
+      name: Protagonist Idle_1
       rect:
         serializedVersion: 2
         x: 1280
@@ -231,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97f74081c12ae99c0800000000000000
-      internalID: -3918516384220020871
+      spriteID: 4fe4320000ed43340800000000000000
+      internalID: 4842739590913806068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_5
+      name: Protagonist Idle_2
       rect:
         serializedVersion: 2
         x: 2560
@@ -252,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 155c28006f2cea2f0800000000000000
-      internalID: -959615308757023407
+      spriteID: aef33eedcbd359f60800000000000000
+      internalID: 8040400591142469610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_6
+      name: Protagonist Idle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -273,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54c1e361b0cd596b0800000000000000
-      internalID: -5290080247100859323
+      spriteID: 0af264c6ad706feb0800000000000000
+      internalID: -4686549727531618400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_7
+      name: Protagonist Idle_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -294,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daa16686a81fe2340800000000000000
-      internalID: 4841072226229164717
+      spriteID: aa60ba0b5fba98d80800000000000000
+      internalID: -8247872170833017174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_8
+      name: Protagonist Idle_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -315,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f54a51e09c4e9b0800000000000000
-      internalID: -5051691819673034895
+      spriteID: 47153a4fece0c43f0800000000000000
+      internalID: -915340342232657548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Protagonist Run Cycle_9
+      name: Protagonist Idle_6
       rect:
         serializedVersion: 2
         x: 0
@@ -336,8 +267,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b2125f8f4a9620b0800000000000000
-      internalID: -5753741807421615432
+      spriteID: 6336dcaaab8c90570800000000000000
+      internalID: 8433492481283023670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Protagonist Idle_7
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 1280
+        height: 1280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346f6431e966575e0800000000000000
+      internalID: -1912509637634623933
       vertices: []
       indices: 
       edges: []
