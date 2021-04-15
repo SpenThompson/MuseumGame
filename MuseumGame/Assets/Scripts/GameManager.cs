@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             Destroy(canvas);
             Destroy(events);
-            DontDestroyOnLoad(player);
+            Destroy(player);
         }
     }
     // Start is called before the first frame update
