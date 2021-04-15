@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collider2D.gameObject.CompareTag("EnemyProjectile"))
+        if (collider2D.gameObject.CompareTag("EnemyProjectile") || collider2D.gameObject.CompareTag("Enemy"))
         {
             DamagePlayer(10);
         }
