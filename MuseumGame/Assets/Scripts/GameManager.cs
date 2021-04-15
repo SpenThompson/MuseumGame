@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class GameManager : MonoBehaviour
     public GameObject spriteToFade;
     public GameObject events;
     public GameObject player;
+    public GameObject dialogBox;
+    public GameObject dialogText;
+
+    public Sprite[] art;
+    public string[] artInfo;
+    public GameObject artImage;
+    
 
     private AudioSource sound;
 
@@ -127,6 +135,18 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return player;
+    }
+    public void StartDialog(int index)
+    {
+        dialogBox.SetActive(true);
+        dialogText.GetComponent<TextMeshProUGUI>().text = artInfo[index];
+        artImage.SetActive(true);
+        artImage.GetComponent<Image>().sprite = art[index];
+    }
+    public void HideDialog()
+    {
+        dialogBox.SetActive(false);
+        artImage.SetActive(false);
     }
 }
 //    }
