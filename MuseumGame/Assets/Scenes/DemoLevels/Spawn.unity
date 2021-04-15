@@ -1978,7 +1978,9 @@ MonoBehaviour:
   spriteToFade: {fileID: 874186942}
   events: {fileID: 1051066022}
   player: {fileID: 1370635947}
-  sceneToLoad: 
+  obtainedPowerups: 
+  powerupStatus: 
+  sceneToLoad: Spike Scene
 --- !u!4 &637676178
 Transform:
   m_ObjectHideFlags: 0

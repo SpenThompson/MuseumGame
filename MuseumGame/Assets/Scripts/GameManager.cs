@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +15,9 @@ public class GameManager : MonoBehaviour
     public GameObject spriteToFade;
     public GameObject events;
     public GameObject player;
+
+    public List<Powerup> obtainedPowerups = new List<Powerup>{ };
+    public List<bool> powerupStatus = new List<bool>{ };
 
     public string sceneToLoad = "";
 
@@ -38,14 +45,14 @@ public class GameManager : MonoBehaviour
     {
         if (sceneToLoad != "")
         {
-            LoadLevel(sceneToLoad, new Vector3(0,0,0));
+            LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        doGliderButtonCheck();
     }
 
     public void LoadLevel(string levelName, Vector3 whereTo)
@@ -84,5 +91,29 @@ public class GameManager : MonoBehaviour
         spriteToFade.SetActive(false);
     }
 
+    private void doGliderButtonCheck()
+    {
+        if (obtainedPowerups.Contains(Powerup.Glider))
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                var index = Array.IndexOf(obtainedPowerups.ToArray(), Powerup.Glider);
+                var status = powerupStatus[index];
+                if (!status)
+                {
+                    player.GetComponent<Glider>().IsGliding = true;
+                    powerupStatus[index] = true;
+                }
+                else
+                {
+                    player.GetComponent<Glider>().IsGliding = false;
+                    powerupStatus[index] = false;
+                }
+            }
+        }
+    }
 }
+//    }
+//}
+//}
 
