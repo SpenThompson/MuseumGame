@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour
     public GameObject events;
     public GameObject player;
 
+    private AudioSource sound;
+
     public List<Powerup> obtainedPowerups = new List<Powerup>{ };
     public List<bool> powerupStatus = new List<bool>{ };
 
     public string sceneToLoad = "";
+
+    public AudioClip[] music;
 
     void Awake()
     {
@@ -47,12 +51,20 @@ public class GameManager : MonoBehaviour
         {
             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
         }
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         doGliderButtonCheck();
+        if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom" ){
+            sound.clip = music[0];
+        }
+        if (!sound.isPlaying)
+        {
+            sound.Play();
+        }
     }
 
     public void LoadLevel(string levelName, Vector3 whereTo)
