@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int currentHealth = 0;
+    public int currentHealth;
     public int maxHealth = 100;
 
     public HealthBarCustom healthBar;
@@ -26,7 +26,12 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.LoadLevel("Spawn", new Vector3(0,0,0));
+            currentHealth = maxHealth;
+            healthBar.SetHealth(currentHealth);
+        }
     }
 
     public void DamagePlayer(int damage)
