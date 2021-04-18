@@ -18,6 +18,7 @@ public class movement : MonoBehaviour
     public float _MinAcc = -1.0f;
     public float _Deceleration = 2f;
     public float jumpForce = 350;
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class movement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         animator.SetFloat("horizontal", horizontal);
+        
 
         if (horizontal < 0)
         {
@@ -73,6 +75,7 @@ public class movement : MonoBehaviour
             rb2d.AddForce(new Vector2(0, jumpForce));
             jumping = true;
         }
+        JumpAnimation();
     }
 
     private void acceleration()
@@ -118,5 +121,19 @@ public class movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         jumping = false;
+    }
+
+    private void JumpAnimation()
+    {
+        if (!isGrounded)
+        {
+            animator.SetBool("isGrounded", false);
+            animator.SetFloat("velocityY", 1 * Mathf.Sign(rb2d.velocity.y));
+        }
+        if (isGrounded)
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetFloat("velocityY", 0);
+        }
     }
 }
