@@ -101,12 +101,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Velocity: 0
-  _MaxVelocity: 3
+  _MaxVelocity: 6
   _Acc: 0
-  _AccSpeed: 0.4
-  _MaxAcc: 1
-  _MinAcc: -1
-  _Deceleration: 2
+  _AccSpeed: 0.25
+  _MaxAcc: 2
+  _MinAcc: -2
+  _Deceleration: 0.4
   jumpForce: 350
 --- !u!114 &-5793387185563800375
 MonoBehaviour:
@@ -136,8 +136,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 9.75, y: 11.35}
+  m_Offset: {x: -0.06668711, y: 0.15004826}
+  m_Size: {x: 4.88177, y: 11.650097}
   m_Direction: 0
 --- !u!50 &4572441351392969366
 Rigidbody2D:

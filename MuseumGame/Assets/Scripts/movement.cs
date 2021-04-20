@@ -5,7 +5,6 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     private float horizontal, vertical;
-    private bool jumping = false;
     private bool faceRight = true;
     private Rigidbody2D rb2d;
     private Animator animator;
@@ -18,19 +17,28 @@ public class movement : MonoBehaviour
     public float _MinAcc = -1.0f;
     public float _Deceleration = 2f;
     public float jumpForce = 350;
-    private bool isGrounded;
+    private float maxJumps = 1;
+    private float numJumps;
+    private bool isGrounded = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        numJumps = maxJumps;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("space") && numJumps > 0)
+        {
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(new Vector2(0, jumpForce));
+            isGrounded = false;
+            numJumps -= 1;
+        }
     }
 
     private void FixedUpdate()
@@ -68,13 +76,6 @@ public class movement : MonoBehaviour
         }
 
         rb2d.velocity = new Vector2(_Velocity, rb2d.velocity.y);
-
-        if (Input.GetKeyDown("space") && !jumping)
-        {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-            rb2d.AddForce(new Vector2(0, jumpForce));
-            jumping = true;
-        }
         JumpAnimation();
     }
 
@@ -120,9 +121,11 @@ public class movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        jumping = false;
+        numJumps = maxJumps;
+        isGrounded = true;
+        Debug.Log("Able to Jump");
     }
-
+    
     private void JumpAnimation()
     {
         if (!isGrounded)
@@ -136,4 +139,5 @@ public class movement : MonoBehaviour
             animator.SetFloat("velocityY", 0);
         }
     }
+    
 }
