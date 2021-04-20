@@ -134,7 +134,7 @@ public class movement : MonoBehaviour
     {
         if (!isGrounded)
         {
-            animator.SetBool("isGrounded", false);
+            animator.SetBool("isGrounde", false);
             animator.SetFloat("velocityY", 1 * Mathf.Sign(rb2d.velocity.y));
         }
         if (isGrounded)
@@ -143,9 +143,12 @@ public class movement : MonoBehaviour
             animator.SetFloat("velocityY", 0);
         }
     }
-    private void Step()
-    {
-        a.PlayOneShot(clips[0]);
+    private void Step()
+
+    {
+
+        a.PlayOneShot(clips[0]);
+
     }
     
 }
