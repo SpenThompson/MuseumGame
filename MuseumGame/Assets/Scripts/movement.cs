@@ -21,12 +21,16 @@ public class movement : MonoBehaviour
     private float numJumps;
     private bool isGrounded = true;
 
+    public AudioClip[] clips;
+    private AudioSource a;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         numJumps = maxJumps;
         animator = GetComponent<Animator>();
+        a = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -138,6 +142,10 @@ public class movement : MonoBehaviour
             animator.SetBool("isGrounded", true);
             animator.SetFloat("velocityY", 0);
         }
+    }
+    private void Step()
+    {
+        a.PlayOneShot(clips[0]);
     }
     
 }
