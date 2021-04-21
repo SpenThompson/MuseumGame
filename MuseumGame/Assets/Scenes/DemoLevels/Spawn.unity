@@ -2322,7 +2322,7 @@ MonoBehaviour:
   artImage: {fileID: 430284682}
   obtainedPowerups: 
   powerupStatus: 
-  sceneToLoad: BossRoom
+  sceneToLoad: 
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
 --- !u!4 &637676178
