@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        doGliderButtonCheck();
+        doPowerupCheck();
         if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom" ){
             sound.clip = music[0];
         }
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         spriteToFade.SetActive(false);
     }
 
-    private void doGliderButtonCheck()
+    private void doPowerupCheck()
     {
         if (obtainedPowerups.Contains(Powerup.Glider))
         {
@@ -131,29 +131,20 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-    }
 
-    private void doHealthupCheck()
-    {
         if (obtainedPowerups.Contains(Powerup.HealthUp))
         {
             player.GetComponent<Health>().maxHealth = 150;
         }
-    }
 
-    private void doDoubleJumpCheck()
-    {
         if (obtainedPowerups.Contains(Powerup.DoubleJump))
         {
             player.GetComponent<movement>().maxJumps = 2;
         }
-    }
 
-    private void doShrinkButtonCheck()
-    {
         if (obtainedPowerups.Contains(Powerup.Shrink))
         {
-           
+
         }
     }
 
