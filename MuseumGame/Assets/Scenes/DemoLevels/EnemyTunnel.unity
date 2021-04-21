@@ -2839,7 +2839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: RouteToTower
-  whereTo: {x: 0, y: 0, z: 0}
+  whereTo: {x: 10.071, y: -0.88, z: 0}
 --- !u!61 &611288315
 BoxCollider2D:
   m_ObjectHideFlags: 0
