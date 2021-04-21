@@ -17,7 +17,7 @@ public class movement : MonoBehaviour
     public float _MinAcc = -1.0f;
     public float _Deceleration = 2f;
     public float jumpForce = 350;
-    private float maxJumps = 1;
+    public float maxJumps = 1;
     private float numJumps;
     private bool isGrounded = true;
 

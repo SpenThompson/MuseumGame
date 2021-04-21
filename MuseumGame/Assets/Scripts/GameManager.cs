@@ -132,6 +132,31 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    private void doHealthupCheck()
+    {
+        if (obtainedPowerups.Contains(Powerup.HealthUp))
+        {
+            player.GetComponent<Health>().maxHealth = 150;
+        }
+    }
+
+    private void doDoubleJumpCheck()
+    {
+        if (obtainedPowerups.Contains(Powerup.DoubleJump))
+        {
+            player.GetComponent<movement>().maxJumps = 2;
+        }
+    }
+
+    private void doShrinkButtonCheck()
+    {
+        if (obtainedPowerups.Contains(Powerup.Shrink))
+        {
+           
+        }
+    }
+
     public GameObject GetPlayer()
     {
         return player;
