@@ -107,8 +107,9 @@ MonoBehaviour:
   _AccSpeed: 0.25
   _MaxAcc: 2
   _MinAcc: -2
-  _Deceleration: 0.4
+  _Deceleration: 0.8
   jumpForce: 350
+  maxJumps: 1
   clips:
   - {fileID: 8300000, guid: dc86b6ab05351b641899e04f315a0a5a, type: 3}
 --- !u!114 &-5793387185563800375
