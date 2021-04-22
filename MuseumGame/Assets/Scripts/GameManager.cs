@@ -119,16 +119,8 @@ public class GameManager : MonoBehaviour
             {
                 var index = Array.IndexOf(obtainedPowerups.ToArray(), Powerup.Glider);
                 var status = powerupStatus[index];
-                if (!status)
-                {
-                    player.GetComponent<Glider>().IsGliding = true;
-                    powerupStatus[index] = true;
-                }
-                else
-                {
-                    player.GetComponent<Glider>().IsGliding = false;
-                    powerupStatus[index] = false;
-                }
+                player.GetComponent<Glider>().IsGliding = !status;
+                powerupStatus[index] = !status;
             }
         }
 
