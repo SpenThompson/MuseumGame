@@ -5,9 +5,8 @@ using UnityEngine;
 public class Shrink : MonoBehaviour
 {
     private GameObject player;
-    private CapsuleCollider2D hitbox;
-    private bool canShrink = false;
-    private float timer = 0;
+    private bool canUnShrink = true;
+    public bool isShrunk = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +16,12 @@ public class Shrink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+
     }
 
     public void startShrinking()
     {
-        if (canShrink)
+        if (canUnShrink)
         {
             for(int i = 0; i < 3; i++)
             {
@@ -35,7 +34,7 @@ public class Shrink : MonoBehaviour
 
     public void startUnShrinking()
     {
-        if (canShrink)
+        if (canUnShrink)
         {
             for(int i = 0; i<3; i++)
             {
@@ -48,11 +47,11 @@ public class Shrink : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        canShrink = false;
+        canUnShrink = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        canShrink = true;
+        canUnShrink = true;
     }
 }

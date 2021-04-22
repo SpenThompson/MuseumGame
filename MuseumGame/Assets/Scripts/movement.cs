@@ -125,9 +125,12 @@ public class movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        numJumps = maxJumps;
-        isGrounded = true;
-        Debug.Log("Able to Jump");
+        if(collision.gameObject.tag == "Floor")
+        {
+            numJumps = maxJumps;
+            isGrounded = true;
+            Debug.Log("Able to Jump");
+        }   
     }
     
     private void JumpAnimation()

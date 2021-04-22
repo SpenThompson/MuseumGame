@@ -9,11 +9,21 @@ public class Health : MonoBehaviour
 
     public HealthBarCustom healthBar;
 
+    private Rigidbody2D rb2d;
+
     void OnTriggerEnter2D(Collider2D collider2D)
     {
+        Debug.Log("colliding");
         if (collider2D.gameObject.CompareTag("EnemyProjectile") || collider2D.gameObject.CompareTag("Enemy"))
         {
             DamagePlayer(10);
+        }
+        if (collider2D.gameObject.CompareTag("EnemyPlatform")) 
+        {
+            Debug.Log("lava");
+            DamagePlayer(10);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            rb2d.AddForce(new Vector2(0, 200));
         }
     }
 
@@ -21,6 +31,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

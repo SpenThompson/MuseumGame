@@ -136,7 +136,14 @@ public class GameManager : MonoBehaviour
 
         if (obtainedPowerups.Contains(Powerup.Shrink))
         {
-
+            if (Input.GetKeyDown("2") && !player.GetComponent<Shrink>().isShrunk)
+            {
+                player.GetComponent<Shrink>().startShrinking();
+            }
+            if (Input.GetKeyDown("2") && player.GetComponent<Shrink>().isShrunk)
+            {
+                player.GetComponent<Shrink>().startUnShrinking();
+            }
         }
     }
 
