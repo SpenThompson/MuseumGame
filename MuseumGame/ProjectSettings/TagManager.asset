@@ -7,7 +7,7 @@ TagManager:
   - EnemyProjectile
   - Platform
   - Enemy
-  - EnemyPlatform
+  - Floor
   layers:
   - Default
   - TransparentFX
