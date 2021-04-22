@@ -2147,7 +2147,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516074240
 GameObject:
@@ -2276,7 +2276,7 @@ PrefabInstance:
       objectReference: {fileID: -3808752148845781986, guid: e03e538db736cbf4fba0318fc079a9e8, type: 3}
     - target: {fileID: 374150667840124767, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 374150667840124767, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   artImage: {fileID: 430284682}
   obtainedPowerups: 
   powerupStatus: 
-  sceneToLoad: Spike Scene
+  sceneToLoad: 
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
 --- !u!4 &637676178
@@ -2411,7 +2411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &637676179
 AudioSource:
@@ -2648,7 +2648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063858059
 GameObject:
@@ -2832,7 +2832,7 @@ Transform:
   - {fileID: 273288223}
   - {fileID: 1728623976}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1173694643
 TilemapCollider2D:
@@ -2893,6 +2893,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 374150667840124763, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
   m_PrefabInstance: {fileID: 590469919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1492329993
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.9165893
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3252196
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406909610842081614, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
+      propertyPath: m_Name
+      value: Glider Powerup placeholder
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
 --- !u!1 &1506634817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3196,7 @@ RectTransform:
   - {fileID: 355907460}
   - {fileID: 430284683}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
