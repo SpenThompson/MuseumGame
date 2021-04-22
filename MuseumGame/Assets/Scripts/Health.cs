@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth = 100;
+    public int lavaDamage = 10;
 
     public HealthBarCustom healthBar;
 
@@ -25,7 +26,7 @@ public class Health : MonoBehaviour
         if (collider2D.gameObject.CompareTag("EnemyPlatform"))
         {
             Debug.Log("lava");
-            DamagePlayer(10);
+            DamagePlayer(lavaDamage);
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(new Vector2(0, 200));
         }

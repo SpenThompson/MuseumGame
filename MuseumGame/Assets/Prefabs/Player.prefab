@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
+  lavaDamage: 40
   healthBar: {fileID: 3455161703679244629, guid: 9add303577184004ab77878cb3cdcf57, type: 3}
 --- !u!70 &3275569032751403274
 CapsuleCollider2D:
