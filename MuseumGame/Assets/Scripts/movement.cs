@@ -36,9 +36,10 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb2d.velocity.y == 0)
+        if (rb2d.velocity.y < 0.1f && rb2d.velocity.y > -0.1f)
         {
             isGrounded = true;
+            numJumps = maxJumps;
         }
 
         if (Input.GetKeyDown("space") && numJumps > 0)
