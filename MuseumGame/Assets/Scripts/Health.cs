@@ -18,7 +18,11 @@ public class Health : MonoBehaviour
         {
             DamagePlayer(10);
         }
-        if (collider2D.gameObject.CompareTag("EnemyPlatform")) 
+      
+    }
+    void OnCollisionEnter2D(Collision2D collider2D)
+    {
+        if (collider2D.gameObject.CompareTag("EnemyPlatform"))
         {
             Debug.Log("lava");
             DamagePlayer(10);
