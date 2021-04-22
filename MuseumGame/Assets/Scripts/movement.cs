@@ -36,6 +36,11 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb2d.velocity.y == 0)
+        {
+            isGrounded = true;
+        }
+
         if (Input.GetKeyDown("space") && numJumps > 0)
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
@@ -125,12 +130,7 @@ public class movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Floor")
-        {
-            numJumps = maxJumps;
-            isGrounded = true;
-            Debug.Log("Able to Jump");
-        }   
+        
     }
     
     private void JumpAnimation()
