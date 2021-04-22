@@ -12,7 +12,6 @@ public class Shrink : MonoBehaviour
     void Start()
     {
         player = GetComponent<GameObject>();
-        hitbox = 
     }
 
     // Update is called once per frame
