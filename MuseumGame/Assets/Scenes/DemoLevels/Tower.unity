@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: RouteToTower
-  whereTo: {x: -24.2, y: -3.18, z: 0}
+  whereTo: {x: -24.22, y: -2.32, z: 0}
 --- !u!483693784 &908243562
 TilemapRenderer:
   m_ObjectHideFlags: 0
