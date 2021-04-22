@@ -8766,6 +8766,7 @@ GameObject:
   - component: {fileID: 1704149510}
   - component: {fileID: 1704149512}
   - component: {fileID: 1704149511}
+  - component: {fileID: 1704149513}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -10297,6 +10298,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1704149513
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704149509}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &1935037035
 GameObject:
   m_ObjectHideFlags: 0
