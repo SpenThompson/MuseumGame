@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DemoLevels/BossRoom.unity
     guid: 503aec0bbe3ef4d1aa545a65ccf69365
+  - enabled: 1
+    path: Assets/Scenes/Museum/Museum.unity
+    guid: 63adcf0bf097442cea052af148007490
   m_configObjects: {}
