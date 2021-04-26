@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Shrink : MonoBehaviour
 {
-    private GameObject player;
+    private Rigidbody2D rb2d;
+    private CapsuleCollider2D col;
     private bool canUnShrink = true;
-    public bool isShrunk = true;
+    public bool isShrunk = false;
+    private float scaleShrink = (6f/7f);
+    private float scaleUnShrink = (7f/6f);
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<GameObject>();
+        rb2d = GetComponent<Rigidbody2D>();
+        col = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -21,37 +25,43 @@ public class Shrink : MonoBehaviour
 
     public void startShrinking()
     {
-        if (canUnShrink)
-        {
-            for(int i = 0; i < 3; i++)
-            {
-                player.transform.localScale = new Vector3(player.transform.localScale.x * (3 / 4), player.transform.localScale.y * (3 / 4), player.transform.localScale.z);
-                player.GetComponent<CapsuleCollider2D>().size = new Vector2(player.GetComponent<CapsuleCollider2D>().size.x * (3 / 4), player.GetComponent<CapsuleCollider2D>().size.y * (3 / 4));
-                new WaitForSeconds(0.25f);
-            } 
-        }
+        StartCoroutine(shrinkLogic());
     }
 
-    public void startUnShrinking()
+    IEnumerator shrinkLogic()
     {
-        if (canUnShrink)
+        if (isShrunk)
         {
-            for(int i = 0; i<3; i++)
+            for (int i = 0; i < 4; i++)
             {
-                player.transform.localScale = new Vector3(player.transform.localScale.x * (4 / 3), player.transform.localScale.y * (4 / 3), player.transform.localScale.z);
-                player.GetComponent<CapsuleCollider2D>().size = new Vector2(player.GetComponent<CapsuleCollider2D>().size.x * (4 / 3), player.GetComponent<CapsuleCollider2D>().size.y * (4 / 3));
-                new WaitForSeconds(0.25f);
+                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
+                col.size = new Vector2(col.size.x * scaleUnShrink, col.size.y * scaleUnShrink);
+                yield return new WaitForSeconds(0.1f);
             }
+            isShrunk = false;
         }
+        else
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
+                col.size = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
+                yield return new WaitForSeconds(0.1f);
+            }
+            isShrunk = true;
+        }
+        StopCoroutine(shrinkLogic());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Can't Shrink");
         canUnShrink = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("Can Shrink");
         canUnShrink = true;
     }
 }

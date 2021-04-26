@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        obtainedPowerups.Add(Powerup.Shrink);
+        powerupStatus.Add(false);
         if (sceneToLoad != "")
         {
             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
@@ -136,13 +138,11 @@ public class GameManager : MonoBehaviour
 
         if (obtainedPowerups.Contains(Powerup.Shrink))
         {
-            if (Input.GetKeyDown("2") && !player.GetComponent<Shrink>().isShrunk)
+            
+            if (Input.GetKeyDown("2"))
             {
                 player.GetComponent<Shrink>().startShrinking();
-            }
-            if (Input.GetKeyDown("2") && player.GetComponent<Shrink>().isShrunk)
-            {
-                player.GetComponent<Shrink>().startUnShrinking();
+                Debug.Log("Start Shrink Logic");
             }
         }
     }
