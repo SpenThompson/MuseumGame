@@ -6,21 +6,36 @@ public class Shrink : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private CapsuleCollider2D col;
-    private bool canUnShrink = true;
-    public bool isShrunk = false;
+    public bool canUnShrink = true;
+    public bool canShrink = false;
+    public bool isShrunk = true;
     private float scaleShrink = (6f/7f);
     private float scaleUnShrink = (7f/6f);
+
+    public Vector3 minRbSize = new Vector3(0.0f, 0.0f, 0.0f);
+    public Vector2 minColSize = new Vector2(0.0f, 0.0f);
+    public Vector3 defaultRbSize = new Vector3(0.0f, 0.0f, 0.0f);
+    public Vector2 defaultColSize = new Vector2(0.0f, 0.0f);
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+
+        minRbSize = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
+        minColSize = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
+        defaultRbSize = rb2d.transform.localScale;
+        defaultColSize = col.size;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        print(col.size + " " + rb2d.transform.localScale);
+        startShrinking();
     }
 
     public void startShrinking()
@@ -30,38 +45,57 @@ public class Shrink : MonoBehaviour
 
     IEnumerator shrinkLogic()
     {
-        if (isShrunk)
-        {
-            for (int i = 0; i < 4; i++)
+            if (isShrunk && canShrink)
             {
-                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
-                col.size = new Vector2(col.size.x * scaleUnShrink, col.size.y * scaleUnShrink);
-                yield return new WaitForSeconds(0.1f);
+                print("true");
+                for (int i = 0; i < 4; i++) //unshrink
+                {
+                    if(((defaultColSize.x >= col.size.x) || (defaultRbSize.x >= rb2d.transform.localScale.x)))
+                    {
+                        rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
+                        col.size = new Vector2(col.size.x * scaleUnShrink, col.size.y * scaleUnShrink);
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                }
+
+                isShrunk = false;
             }
-            isShrunk = false;
-        }
-        else if(!isShrunk && canUnShrink)
-        {
-            for (int i = 0; i < 4; i++)
+            else if (!isShrunk && canUnShrink)
             {
-                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
-                col.size = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
-                yield return new WaitForSeconds(0.1f);
-            }
+                for (int i = 0; i < 4; i++) //shrink
+                {
+                if (((minColSize.x <= col.size.x) || (minRbSize.x <= rb2d.transform.localScale.x)))
+                {
+                    rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
+                    col.size = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                }
             isShrunk = true;
         }
-        StopCoroutine(shrinkLogic());
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Can't Shrink");
-        canUnShrink = false;
+        ShrinkFunction();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("Can Shrink");
+        Unshrink();
+    }
+
+    public void ShrinkFunction()
+    {
+        canShrink = true;
+        canUnShrink = false;
+    }
+    public void Unshrink()
+    {
+        canShrink = false;
         canUnShrink = true;
     }
 }
