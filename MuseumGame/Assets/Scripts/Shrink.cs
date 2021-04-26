@@ -40,7 +40,7 @@ public class Shrink : MonoBehaviour
             }
             isShrunk = false;
         }
-        else
+        else if(!isShrunk && canUnShrink)
         {
             for (int i = 0; i < 4; i++)
             {
