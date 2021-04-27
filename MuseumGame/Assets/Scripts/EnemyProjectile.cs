@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
+
+    public float lifeSpan;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(DestroyProjectile());
     }
 
     // Update is called once per frame
@@ -27,5 +30,10 @@ public class EnemyProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    IEnumerator DestroyProjectile()
+    {
+        yield return new WaitForSeconds(lifeSpan);
+        Destroy(gameObject);
     }
 }
