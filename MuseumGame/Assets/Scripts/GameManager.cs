@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject dialogBox;
     public GameObject dialogText;
+    public GameObject healtBar;
+    public GameObject powerUps;
+    public GameObject startButton;
+    public GameObject title;
+    public GameObject panel;
 
     public Sprite[] art;
     public string[] artInfo;
@@ -57,11 +62,12 @@ public class GameManager : MonoBehaviour
     {
         obtainedPowerups.Add(Powerup.Shrink);
         powerupStatus.Add(false);
-        if (sceneToLoad != "")
+       /* if (sceneToLoad != "")
         {
             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
-        }
+        }*/
         sound = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -165,6 +171,16 @@ public class GameManager : MonoBehaviour
     {
         dialogBox.SetActive(false);
         artImage.SetActive(false);
+    }
+    public void PlayButton()
+    {
+        Debug.Log("s");
+        startButton.SetActive(false);
+        title.SetActive(false);
+        panel.SetActive(false);
+        LoadLevel("Spawn", new Vector3(0, 0, 0));
+        healtBar.SetActive(true);
+        powerUps.SetActive(true);
     }
 }
 //    }
