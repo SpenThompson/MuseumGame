@@ -30,6 +30,10 @@ public class Health : MonoBehaviour
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(new Vector2(0, 200));
         }
+        if (collider2D.gameObject.CompareTag("Dog")) 
+        {
+            DamagePlayer(50);
+        }
     }
 
     // Start is called before the first frame update
