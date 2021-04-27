@@ -2614,19 +2614,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3275569032751403274, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Size.x
-      value: 0.55820453
+      value: 0.50485027
       objectReference: {fileID: 0}
     - target: {fileID: 3275569032751403274, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Size.y
-      value: 1.257689
+      value: 1.196177
       objectReference: {fileID: 0}
     - target: {fileID: 3275569032751403274, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Offset.x
-      value: -0.018835664
+      value: -0.0081648035
       objectReference: {fileID: 0}
     - target: {fileID: 3275569032751403274, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Offset.y
-      value: -0.004920721
+      value: 0.025835276
       objectReference: {fileID: 0}
     - target: {fileID: 4469907059167699923, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Enabled
@@ -2678,7 +2678,7 @@ MonoBehaviour:
   artImage: {fileID: 430284682}
   obtainedPowerups: 
   powerupStatus: 
-  sceneToLoad: DogLevelSpawn
+  sceneToLoad: 
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}
