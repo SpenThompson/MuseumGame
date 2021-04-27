@@ -6,6 +6,7 @@ public class DogBoss : MonoBehaviour
 {
     private bool faceRight = false;
     private Rigidbody2D rb2d;
+    private Vector2 v2;
 
     public float dogSpeed;
     public float runTime;
@@ -23,6 +24,10 @@ public class DogBoss : MonoBehaviour
     {
         
     }
+    private void FixedUpdate()
+    {
+        rb2d.velocity = v2;
+    }
     private void flip()
     {
         faceRight = !faceRight;
@@ -35,15 +40,15 @@ public class DogBoss : MonoBehaviour
         for (; ; ) {
             if (faceRight)
             {
-                rb2d.velocity = new Vector2(dogSpeed, 0);
+                v2 = new Vector2(dogSpeed, 0);
             }
             else
             {
-                rb2d.velocity = new Vector2(-dogSpeed, 0);
+                v2 = new Vector2(-dogSpeed, 0);
             }
             yield return new WaitForSeconds(runTime);
 
-            rb2d.velocity = new Vector2(0, 0);
+            v2 = new Vector2(0, 0);
 
             yield return new WaitForSeconds(waitTime);
             flip();
