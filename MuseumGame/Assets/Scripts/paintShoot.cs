@@ -29,4 +29,9 @@ public class paintShoot : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //This is where you would damage the enemy
+    }
 }
