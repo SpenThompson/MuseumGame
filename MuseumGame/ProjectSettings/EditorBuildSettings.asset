@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DogLevel/DogLevelSpawn.unity
     guid: d3b5310a0b80a4580b0b22f3f3c91f7c
+  - enabled: 1
+    path: Assets/Scenes/DogLevel/DogBoss.unity
+    guid: f69f0974d14564276a2a83ed0a947b68
   m_configObjects: {}
