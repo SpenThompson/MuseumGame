@@ -5,7 +5,7 @@ using UnityEngine;
 public class movement : MonoBehaviour
 {
     private float horizontal, vertical;
-    private bool faceRight = true;
+    public bool faceRight = true;
     private Rigidbody2D rb2d;
     private Animator animator;
 
