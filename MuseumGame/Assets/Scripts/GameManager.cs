@@ -68,8 +68,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         doPowerupCheck();
-        if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom" ){
+        if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom") {
             sound.clip = music[0];
+        } else if (SceneManager.GetActiveScene().name == "Museum") {
+            sound.clip = music[1];
+        } else if (SceneManager.GetActiveScene().name == "DogLevelSpawn" || SceneManager.GetActiveScene().name == "DogBoss") {
         }
         if (!sound.isPlaying)
         {
