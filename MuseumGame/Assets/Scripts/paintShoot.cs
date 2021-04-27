@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class paintShoot : MonoBehaviour
 {
-    public Rigidbody2D paintBlob;
-    private GameObject player;
+    private Rigidbody2D paintBlob;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
