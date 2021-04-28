@@ -18,6 +18,7 @@ public class paintShoot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("shooting");
             Instantiate(paintBlob, player.transform);
             if (player.GetComponent<movement>().faceRight)
             {
