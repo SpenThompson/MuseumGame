@@ -17,8 +17,8 @@ public class movement : MonoBehaviour
     public float _MinAcc = -1.0f;
     public float _Deceleration = 2f;
     public float jumpForce = 350;
-    public float maxJumps = 1;
-    private float numJumps;
+    public int maxJumps = 1;
+    public int numJumps;
     private bool isGrounded = true;
 
     public AudioClip[] clips;
@@ -36,11 +36,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rb2d.velocity.y < 0.0001f && rb2d.velocity.y > -0.0001f)
-        {
-            isGrounded = true;
-            numJumps = maxJumps;
-        }
 
         if (Input.GetKeyDown("space") && numJumps > 0)
         {
@@ -131,7 +126,17 @@ public class movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.contacts.Length > 0)
+        {
+            //http://answers.unity.com/answers/130167/view.html
+            //Check collisions from the bottom of the player, or from one way platforms to increase jumps.
+            ContactPoint2D contact = collision.contacts[0];
+            if ((Vector3.Dot(contact.normal, Vector3.up) > 0.5) || collision.gameObject.CompareTag("OneWay"))
+            {
+                isGrounded = true;
+                numJumps = maxJumps;
+            }
+        }
     }
     
     private void JumpAnimation()

@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
 
 
     private AudioSource sound;
-s
     public string sceneToLoad = "";
 
     public AudioClip[] music;
@@ -55,8 +54,6 @@ s
             DontDestroyOnLoad(canvas);
             DontDestroyOnLoad(events);
             DontDestroyOnLoad(player);
-            DontDestroyOnLoad(powerUps);
-
         }
         else
         {
@@ -81,7 +78,6 @@ s
     // Update is called once per frame
     void Update()
     {
-        doPowerupCheck();
         if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom") {
             sound.clip = music[0];
         } else if (SceneManager.GetActiveScene().name == "Museum") {
@@ -128,11 +124,6 @@ s
         }
         sprite.color = endValue;
         spriteToFade.SetActive(false);
-    }
-
-    private void doPowerupCheck()
-    {
-
     }
 
     public GameObject GetPlayer()

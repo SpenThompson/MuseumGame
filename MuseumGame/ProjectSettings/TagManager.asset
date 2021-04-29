@@ -12,6 +12,7 @@ TagManager:
   - Dog
   - Projectile
   - EnemyPlatform
+  - OneWay
   layers:
   - Default
   - TransparentFX

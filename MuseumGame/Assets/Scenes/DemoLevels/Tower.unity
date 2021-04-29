@@ -3574,7 +3574,7 @@ GameObject:
   - component: {fileID: 1716577441}
   m_Layer: 0
   m_Name: Oneway
-  m_TagString: Floor
+  m_TagString: OneWay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
