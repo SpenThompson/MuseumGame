@@ -137,36 +137,17 @@ public class GameManager : MonoBehaviour
 
     private void doPowerupCheck()
     {
-        if (obtainedPowerups.Contains(Powerup.Glider))
-        {
-            if (Input.GetKeyDown("1"))
-            {
-                var index = Array.IndexOf(obtainedPowerups.ToArray(), Powerup.Glider);
-                var status = powerupStatus[index];
-                player.GetComponent<Glider>().IsGliding = !status;
-                powerupStatus[index] = !status;
-            }
-        }
+        //if (obtainedPowerups.Contains(Powerup.Glider))
+        //{
+        //    if (Input.GetKeyDown("1"))
+        //    {
+        //        var index = Array.IndexOf(obtainedPowerups.ToArray(), Powerup.Glider);
+        //        var status = powerupStatus[index];
+        //        player.GetComponent<Glider>().IsGliding = !status;
+        //        powerupStatus[index] = !status;
+        //    }
+        //}
 
-        if (obtainedPowerups.Contains(Powerup.HealthUp))
-        {
-            player.GetComponent<Health>().maxHealth = 150;
-        }
-
-        if (obtainedPowerups.Contains(Powerup.DoubleJump))
-        {
-            player.GetComponent<movement>().maxJumps = 2;
-        }
-
-        if (obtainedPowerups.Contains(Powerup.Shrink))
-        {
-            
-            if (Input.GetKeyDown("2"))
-            {
-                player.GetComponent<Shrink>().startShrinking();
-                Debug.Log("Start Shrink Logic");
-            }
-        }
     }
 
     public GameObject GetPlayer()
@@ -227,6 +208,23 @@ public class GameManager : MonoBehaviour
         {
             disablePowerup(i);
         }
+    }
+
+    public void GliderButtonClicked()
+    {
+        Debug.Log("Is Gliding? " + player.GetComponent<Glider>().IsGliding);
+        player.GetComponent<Glider>().IsGliding = !player.GetComponent<Glider>().IsGliding;
+    }
+
+    public void ShrinkButtonClicked()
+    {
+        player.GetComponent<Shrink>().startShrinking();
+        Debug.Log("Start Shrink Logic");
+    }
+
+    public void DoubleJumpClicked()
+    {
+        player.GetComponent<movement>().maxJumps = 2;
     }
 }
 
