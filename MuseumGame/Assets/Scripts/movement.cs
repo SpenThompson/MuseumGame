@@ -130,8 +130,7 @@ public class movement : MonoBehaviour
         {
             //http://answers.unity.com/answers/130167/view.html
             //Check collisions from the bottom of the player, or from one way platforms to increase jumps.
-            ContactPoint2D contact = collision.contacts[0];
-            if ((Vector3.Dot(contact.normal, Vector3.up) > 0.5) || collision.gameObject.CompareTag("OneWay"))
+            if ((collision.transform.CompareTag("Floor") && collision.contacts[0].point.y < transform.position.y) || collision.gameObject.CompareTag("OneWay"))
             {
                 isGrounded = true;
                 numJumps = maxJumps;
