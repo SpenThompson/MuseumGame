@@ -13,6 +13,7 @@ public class DaisyBoss : MonoBehaviour
     private EnemyHealthBar ehb;
     public int enemyHealth;
     public int damageTaken;
+    public GameObject[] doors;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class DaisyBoss : MonoBehaviour
         enemyHealthBar = GameManager.Instance.GetEnemyHealthBar();
         ehb = enemyHealthBar.GetComponent<EnemyHealthBar>();
         enemyHealthBar.gameObject.SetActive(true);
+        foreach (GameObject i in doors) {
+            i.GetComponent<Collider2D>().isTrigger = false;
+            i.GetComponent<LoadLevel>().enabled = false;
+        }
   
         
     }
@@ -37,6 +42,11 @@ public class DaisyBoss : MonoBehaviour
         ehb.SetHealth(enemyHealth);
         if (enemyHealth <=0) {
             enemyHealthBar.SetActive(false);
+            foreach (GameObject i in doors)
+            {
+                i.GetComponent<Collider2D>().isTrigger = true;
+                i.GetComponent<LoadLevel>().enabled = true;
+            }
             Destroy(gameObject);
         }
 

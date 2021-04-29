@@ -1728,6 +1728,9 @@ MonoBehaviour:
   timeBetween: 4
   enemyHealth: 100
   damageTaken: 10
+  doors:
+  - {fileID: 1787950110}
+  - {fileID: 1115280552}
 --- !u!95 &453535362
 Animator:
   serializedVersion: 3

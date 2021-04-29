@@ -20,7 +20,7 @@ public class LoadLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && enabled)
         {
             GameManager.Instance.LoadLevel(LevelName, whereTo);
         }
