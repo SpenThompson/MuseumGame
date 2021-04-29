@@ -79,12 +79,6 @@ public class movement : MonoBehaviour
         {
             deceleration();
         }
-        /*
-        if(rb2d.velocity.y)
-        {
-
-        }
-        */
 
         rb2d.velocity = new Vector2(_Velocity, rb2d.velocity.y);
         JumpAnimation();
@@ -129,6 +123,7 @@ public class movement : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
     }
+
     /*
     private void OnCollisionEnter2D(Collision2D collision)
     {

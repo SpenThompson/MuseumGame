@@ -40,6 +40,17 @@ public class Shrink : MonoBehaviour
 
     public void startShrinking()
     {
+        RaycastHit2D ceiling = Physics2D.Raycast(rb2d.transform.position, transform.TransformDirection(Vector2.up), 2f);  
+
+        if (ceiling)
+        {
+            Debug.Log("Unable to Shrink");
+            cantShrinkCheck();
+        }
+        else
+        {
+            canShrinkCheck();
+        }
         StartCoroutine(shrinkLogic());
     }
 
@@ -76,25 +87,13 @@ public class Shrink : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("Can't Shrink");
-        shrinkFunctionCheck();
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //Debug.Log("Can Shrink");
-        unShrinkCheck();
-    }
-
-    public void shrinkFunctionCheck()
+    public void cantShrinkCheck()
     {
         canShrink = false;
         canUnShrink = true;
 
     }
-    public void unShrinkCheck()
+    public void canShrinkCheck()
     {
         canShrink = true;
         canUnShrink = false;
