@@ -21,6 +21,7 @@ public class ShrinkPowerup : MonoBehaviour
         Debug.Log("Shrink Powerup Obtained");
         GameManager.Instance.obtainedPowerups.Add(Powerup.Shrink);
         GameManager.Instance.powerupStatus.Add(false);
+        GameManager.Instance.enablePowerup(3);
         Destroy(gameObject);
     }
 }
