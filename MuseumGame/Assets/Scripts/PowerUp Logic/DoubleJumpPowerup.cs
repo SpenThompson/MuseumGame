@@ -19,8 +19,6 @@ public class DoubleJumpPowerup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("DoubleJump Powerup Obtained");
-        GameManager.Instance.obtainedPowerups.Add(Powerup.DoubleJump);
-        GameManager.Instance.powerupStatus.Add(false);
         GameManager.Instance.enablePowerup(2);
         Destroy(gameObject);
     }

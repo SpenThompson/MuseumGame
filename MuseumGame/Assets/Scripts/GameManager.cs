@@ -39,10 +39,7 @@ public class GameManager : MonoBehaviour
 
 
     private AudioSource sound;
-
-    public List<Powerup> obtainedPowerups = new List<Powerup>{ };
-    public List<bool> powerupStatus = new List<bool>{ };
-
+s
     public string sceneToLoad = "";
 
     public AudioClip[] music;
@@ -73,8 +70,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        obtainedPowerups.Add(Powerup.Shrink);
-        powerupStatus.Add(false);
        /* if (sceneToLoad != "")
         {
             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
@@ -137,16 +132,6 @@ public class GameManager : MonoBehaviour
 
     private void doPowerupCheck()
     {
-        //if (obtainedPowerups.Contains(Powerup.Glider))
-        //{
-        //    if (Input.GetKeyDown("1"))
-        //    {
-        //        var index = Array.IndexOf(obtainedPowerups.ToArray(), Powerup.Glider);
-        //        var status = powerupStatus[index];
-        //        player.GetComponent<Glider>().IsGliding = !status;
-        //        powerupStatus[index] = !status;
-        //    }
-        //}
 
     }
 
@@ -213,7 +198,7 @@ public class GameManager : MonoBehaviour
     public void GliderButtonClicked()
     {
         Debug.Log("Is Gliding? " + player.GetComponent<Glider>().IsGliding);
-        player.GetComponent<Glider>().IsGliding = !player.GetComponent<Glider>().IsGliding;
+        player.GetComponent<Glider>().ToggleGliding();
     }
 
     public void ShrinkButtonClicked()

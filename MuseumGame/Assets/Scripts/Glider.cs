@@ -12,6 +12,7 @@ public class Glider : MonoBehaviour
     /// 
     /// </summary>
     private Rigidbody2D m_Rigidbody2D = null;
+    public bool IsGliding = false;
 
     // Awake is called before Start function
     void Awake()
@@ -36,10 +37,15 @@ public class Glider : MonoBehaviour
         IsGliding = false;
     }
 
+    public void ToggleGliding()
+    {
+        IsGliding = !IsGliding;
+    }
+
     /// <summary>
     /// Flag to check if gliding
     /// </summary>
     ///
-    public bool IsGliding { get; set; } = false;
+    //public bool IsGliding { get; set; } = false;
 
 }
