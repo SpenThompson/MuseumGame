@@ -7,7 +7,7 @@ public class Shrink : MonoBehaviour
     private Rigidbody2D rb2d;
     private CapsuleCollider2D col;
     public bool canUnShrink = true;
-    public bool canShrink = false;
+    //public bool canShrink = false;
     public bool isShrunk = true;
     private float scaleShrink = (6f/7f);
     private float scaleUnShrink = (7f/6f);
@@ -45,12 +45,12 @@ public class Shrink : MonoBehaviour
         if (ceiling && isShrunk)
         {
             Debug.Log("Unable to Shrink");
-            cantShrinkCheck();
+            canUnShrink = false;
         }
         else
         {
             Debug.Log("Able to Shrink");
-            canShrinkCheck();
+            canUnShrink = true;
         }
         StartCoroutine(shrinkLogic());
     }
@@ -58,37 +58,25 @@ public class Shrink : MonoBehaviour
     IEnumerator shrinkLogic()
     {
         Debug.Log("Shrinking Logic");
-        if (isShrunk && canUnShrink)
+        if (isShrunk /*&& canUnShrink*/)
         {
             print("unshrinking");
-            for (int i = 0; i < 3; i++) //unshrink
+            for (int i = 0; i < 4; i++) //unshrink
             {
                 rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.1f);
             }
             isShrunk = false;
         }
         else if (!isShrunk)
         {
             print("shrinking");
-            for (int i = 0; i < 3; i++) //shrink
-            {
+            for (int i = 0; i < 4; i++) //shrink
+            { 
                 rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.1f);
             }
             isShrunk = true;
         }
-    }
-
-    public void cantShrinkCheck()
-    {
-        canShrink = false;
-        canUnShrink = true;
-
-    }
-    public void canShrinkCheck()
-    {
-        canShrink = true;
-        canUnShrink = false;
     }
 }
