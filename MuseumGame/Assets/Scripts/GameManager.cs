@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
         }*/
         sound = GetComponent<AudioSource>();
-
+        GameManager.Instance.enablePowerup(3);
     }
 
     // Update is called once per frame
@@ -87,6 +87,9 @@ public class GameManager : MonoBehaviour
         if (!sound.isPlaying)
         {
             sound.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.Q)){
+            ShrinkButtonClicked();
         }
     }
 
@@ -194,8 +197,8 @@ public class GameManager : MonoBehaviour
 
     public void ShrinkButtonClicked()
     {
-        player.GetComponent<Shrink>().startShrinking();
         Debug.Log("Start Shrink Logic");
+        player.GetComponent<Shrink>().startShrinking();
     }
 
     public void DoubleJumpClicked()

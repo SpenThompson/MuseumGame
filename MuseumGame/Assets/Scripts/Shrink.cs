@@ -24,7 +24,7 @@ public class Shrink : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
 
-        minRbSize = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
+        minRbSize = new Vector3((rb2d.transform.localScale.x * scaleShrink) * 4, (rb2d.transform.localScale.y * scaleShrink) * 4, rb2d.transform.localScale.z);
         minColSize = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
         defaultRbSize = rb2d.transform.localScale;
         defaultColSize = col.size;
@@ -34,13 +34,13 @@ public class Shrink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(col.size + " " + rb2d.transform.localScale);
-        startShrinking();
+        //print(col.size + " " + rb2d.transform.localScale);
     }
 
     public void startShrinking()
     {
-        RaycastHit2D ceiling = Physics2D.Raycast(rb2d.transform.position, transform.TransformDirection(Vector2.up), 2f);  
+        Debug.Log("startshrinking()");
+        RaycastHit2D ceiling = Physics2D.Raycast(rb2d.transform.position, transform.TransformDirection(Vector2.up), 1f);  
 
         if (ceiling && isShrunk)
         {
@@ -49,6 +49,7 @@ public class Shrink : MonoBehaviour
         }
         else
         {
+            Debug.Log("Able to Shrink");
             canShrinkCheck();
         }
         StartCoroutine(shrinkLogic());
@@ -56,35 +57,27 @@ public class Shrink : MonoBehaviour
 
     IEnumerator shrinkLogic()
     {
-            if (isShrunk && canShrink)
+        Debug.Log("Shrinking Logic");
+        if (isShrunk && canUnShrink)
+        {
+            print("unshrinking");
+            for (int i = 0; i < 3; i++) //unshrink
             {
-                print("true");
-                for (int i = 0; i < 3; i++) //unshrink
-                {
-                    if(((defaultColSize.x >= col.size.x) || (defaultRbSize.x >= rb2d.transform.localScale.x)))
-                    {
-                        rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
-                        col.size = new Vector2(col.size.x * scaleUnShrink, col.size.y * scaleUnShrink);
-                        yield return new WaitForSeconds(0.1f);
-                    }
-                }
-
-                isShrunk = false;
+                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleUnShrink, rb2d.transform.localScale.y * scaleUnShrink, rb2d.transform.localScale.z);
+                yield return new WaitForSeconds(0.05f);
             }
-            else if (!isShrunk && canUnShrink)
+            isShrunk = false;
+        }
+        else if (!isShrunk)
+        {
+            print("shrinking");
+            for (int i = 0; i < 3; i++) //shrink
             {
-                for (int i = 0; i < 3; i++) //shrink
-                {
-                if (((minColSize.x <= col.size.x) || (minRbSize.x <= rb2d.transform.localScale.x)))
-                {
-                    rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
-                    col.size = new Vector2(col.size.x * scaleShrink, col.size.y * scaleShrink);
-                    yield return new WaitForSeconds(0.1f);
-                }
-                }
+                rb2d.transform.localScale = new Vector3(rb2d.transform.localScale.x * scaleShrink, rb2d.transform.localScale.y * scaleShrink, rb2d.transform.localScale.z);
+                yield return new WaitForSeconds(0.05f);
+            }
             isShrunk = true;
         }
-
     }
 
     public void cantShrinkCheck()
