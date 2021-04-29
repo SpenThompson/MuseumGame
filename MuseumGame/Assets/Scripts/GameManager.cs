@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
-        LoadLevel("BossRoom", new Vector3(0, 0, 0));
+        LoadLevel("DogBoss", new Vector3(0, 0, 0));
         healtBar.SetActive(true);
         powerUps.SetActive(true);
     }

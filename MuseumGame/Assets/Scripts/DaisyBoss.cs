@@ -11,7 +11,7 @@ public class DaisyBoss : MonoBehaviour
 
     private GameObject enemyHealthBar;
     private EnemyHealthBar ehb;
-    public int enemyHealth;
+    private int enemyHealth;
     public int damageTaken;
     public GameObject[] doors;
 
@@ -23,6 +23,7 @@ public class DaisyBoss : MonoBehaviour
         enemyHealthBar = GameManager.Instance.GetEnemyHealthBar();
         ehb = enemyHealthBar.GetComponent<EnemyHealthBar>();
         enemyHealthBar.gameObject.SetActive(true);
+        enemyHealth = ehb.maxHealth;
         foreach (GameObject i in doors) {
             i.GetComponent<Collider2D>().isTrigger = false;
             i.GetComponent<LoadLevel>().enabled = false;
@@ -56,7 +57,7 @@ public class DaisyBoss : MonoBehaviour
         
             if (collision2D.gameObject.CompareTag("Projectile"))
             {
-                DamageEnemy(50);
+                DamageEnemy(damageTaken);
             }
         
     }
@@ -64,7 +65,7 @@ public class DaisyBoss : MonoBehaviour
     {
         if (collider2D.gameObject.CompareTag("Projectile"))
         {
-            DamageEnemy(50);
+            DamageEnemy(damageTaken);
         }
     }
 
