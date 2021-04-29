@@ -19,8 +19,7 @@ public class HealthUpPowerup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("HealthUp Powerup Obtained");
-        GameManager.Instance.obtainedPowerups.Add(Powerup.HealthUp);
-        GameManager.Instance.powerupStatus.Add(false);
+        GameManager.Instance.player.GetComponent<Health>().maxHealth = 150;
         Destroy(gameObject);
     }
 }
