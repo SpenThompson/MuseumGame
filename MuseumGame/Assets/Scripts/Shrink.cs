@@ -42,7 +42,7 @@ public class Shrink : MonoBehaviour
     {
         RaycastHit2D ceiling = Physics2D.Raycast(rb2d.transform.position, transform.TransformDirection(Vector2.up), 2f);  
 
-        if (ceiling)
+        if (ceiling && isShrunk)
         {
             Debug.Log("Unable to Shrink");
             cantShrinkCheck();
