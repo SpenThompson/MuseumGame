@@ -18,8 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject dialogBox;
     public GameObject dialogText;
-    public GameObject healtBar;
-    public GameObject powerUps;
+    public GameObject healthbar;
     public GameObject startButton;
     public GameObject title;
     public GameObject panel;
@@ -27,7 +26,17 @@ public class GameManager : MonoBehaviour
     public Sprite[] art;
     public string[] artInfo;
     public GameObject artImage;
-    
+
+
+    public GameObject powerUps;
+    public GameObject gliderPowerupButton;
+    public GameObject boxPowerupButton;
+    public GameObject doubleJumpPowerupButton;
+    public GameObject shrinkPowerupButton;
+    public GameObject otherPowerupButton;
+    public GameObject powerupText;
+
+
 
     private AudioSource sound;
 
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(canvas);
             DontDestroyOnLoad(events);
             DontDestroyOnLoad(player);
+            DontDestroyOnLoad(powerUps);
 
         }
         else
@@ -57,6 +67,7 @@ public class GameManager : MonoBehaviour
             Destroy(canvas);
             Destroy(events);
             Destroy(player);
+            Destroy(powerUps);
         }
     }
     // Start is called before the first frame update
@@ -176,20 +187,46 @@ public class GameManager : MonoBehaviour
     }
     public void PlayButton()
     {
-        Debug.Log("s");
         startButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
-        LoadLevel("DogBoss", new Vector3(0, 0, 0));
-        healtBar.SetActive(true);
+        healthbar.SetActive(true);
         powerUps.SetActive(true);
+        disableAllPowerups();
+        LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
+
+
     }
     public GameObject GetEnemyHealthBar()
     {
         return enemyHealthBar;
     }
+
+    public void disablePowerup(int powerupID)
+    {
+        if (powerupID >= 0 && powerupID <= 4)
+        {
+            var powerup = powerUps.gameObject.transform.GetChild(powerupID);
+            powerup.gameObject.SetActive(false);
+        }
+    }
+
+
+    public void enablePowerup(int powerupID)
+    {
+        if (powerupID >= 0 && powerupID <= 4)
+        {
+            var powerup = powerUps.gameObject.transform.GetChild(powerupID);
+            powerup.gameObject.SetActive(true);
+        }
+    }
+
+    public void disableAllPowerups()
+    {
+        for(int i=0; i<=4; i++)
+        {
+            disablePowerup(i);
+        }
+    }
 }
-//    }
-//}
-//}
 

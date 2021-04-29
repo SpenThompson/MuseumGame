@@ -1084,17 +1084,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829770868}
   m_CullTransparentMesh: 1
---- !u!1 &830277152 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6644325902043065115, guid: 9add303577184004ab77878cb3cdcf57, type: 3}
-  m_PrefabInstance: {fileID: 1597355500}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &830277153 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3455161703679244629, guid: 9add303577184004ab77878cb3cdcf57, type: 3}
   m_PrefabInstance: {fileID: 1597355500}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830277152}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b9240bd39bca87438df56c58d013245, type: 3}
@@ -2459,8 +2454,7 @@ MonoBehaviour:
   player: {fileID: 1831256037}
   dialogBox: {fileID: 1590398590}
   dialogText: {fileID: 127032239}
-  healtBar: {fileID: 830277152}
-  powerUps: {fileID: 1159971422}
+  healthbar: {fileID: 0}
   startButton: {fileID: 283377687}
   title: {fileID: 655160807}
   panel: {fileID: 182368510}
@@ -2470,9 +2464,16 @@ MonoBehaviour:
   - Selma Blackburn Untitled n.d. Watercolor on paper 19.125 x 18.125 inches Windgate
     Museum of Art Collection
   artImage: {fileID: 1034874535}
+  powerUps: {fileID: 1159971422}
+  gliderPowerupButton: {fileID: 526643974}
+  boxPowerupButton: {fileID: 2130100238}
+  doubleJumpPowerupButton: {fileID: 184189969}
+  shrinkPowerupButton: {fileID: 974869911}
+  otherPowerupButton: {fileID: 847247611}
+  powerupText: {fileID: 829770868}
   obtainedPowerups: 
   powerupStatus: 
-  sceneToLoad: '""'
+  sceneToLoad: Spawn
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}
