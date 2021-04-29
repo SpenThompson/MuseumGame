@@ -4,35 +4,65 @@ using UnityEngine;
 
 public class paintShoot : MonoBehaviour
 {
-    private Rigidbody2D paintBlob;
-    public GameObject player;
+    public GameObject projectile;
+    public int projSpeed;
+    public float waitTime;
+    private float horizontal;
+    private float vertical;
+    private bool canShoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<GameObject>();
+        canShoot = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.E) && canShoot)
         {
             Debug.Log("shooting");
-            Instantiate(paintBlob, player.transform);
-            if (player.GetComponent<movement>().faceRight)
-            {
-                paintBlob.velocity = transform.TransformDirection(Vector2.right);
+            canShoot = false;
+            StartCoroutine(ProjTimer());
+            GameObject proj = Instantiate(projectile, transform.position,transform.rotation);
+            if (horizontal > 0 && vertical > 0) {
+                proj.transform.Rotate(new Vector3(0, 0, 45));
+            } else if (horizontal > 0 && vertical < 0) {
+                proj.transform.Rotate(new Vector3(0, 0, -45));
+            } else if (horizontal < 0 && vertical < 0) {
+                proj.transform.Rotate(new Vector3(0, 0, -135));
+            } else if (horizontal < 0 && vertical > 0) {
+                proj.transform.Rotate(new Vector3(0, 0, 135));
+            } else if (horizontal > 0) {
+                proj.transform.Rotate(new Vector3(0, 0, 0));
+            } else if (horizontal < 0) {
+                proj.transform.Rotate(new Vector3(0, 0, 180));
+            } else if (vertical > 0) {
+                proj.transform.Rotate(new Vector3(0, 0, 90));
+            } else if (vertical < 0) {
+                proj.transform.Rotate(new Vector3(0, 0, -90));
+            } else {
+                if (GetComponent<movement>().faceRight)
+                {
+                    proj.transform.Rotate(new Vector3(0, 0, 0));
+                }
+                else
+                {
+                    proj.transform.Rotate(new Vector3(0, 0, 180));
+                }
             }
-            else
-            {
-                paintBlob.velocity = transform.TransformDirection(Vector2.left);
-            }
+            proj.GetComponent<Rigidbody2D>().velocity = proj.transform.right * projSpeed;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator ProjTimer()
     {
-        //This is where you would damage the enemy
+        yield return new WaitForSeconds(waitTime);
+        canShoot = true;
     }
+
+ 
 }

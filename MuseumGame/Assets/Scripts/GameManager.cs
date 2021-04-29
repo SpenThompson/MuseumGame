@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public AudioClip[] music;
 
+    public GameObject enemyHealthBar;
+
     void Awake()
     {
         if (Instance == null)
@@ -178,9 +180,13 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
-        LoadLevel("Spawn", new Vector3(0, 0, 0));
+        LoadLevel("BossRoom", new Vector3(0, 0, 0));
         healtBar.SetActive(true);
         powerUps.SetActive(true);
+    }
+    public GameObject GetEnemyHealthBar()
+    {
+        return enemyHealthBar;
     }
 }
 //    }

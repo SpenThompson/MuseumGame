@@ -1726,6 +1726,8 @@ MonoBehaviour:
   projectile: {fileID: 5836429411335034028, guid: 67bd739b3855bf4449e02e4b83c1d984, type: 3}
   projSpeed: 8
   timeBetween: 4
+  enemyHealth: 100
+  damageTaken: 10
 --- !u!95 &453535362
 Animator:
   serializedVersion: 3

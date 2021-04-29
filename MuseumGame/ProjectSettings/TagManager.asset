@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - GliderPowerup
   - Dog
+  - Projectile
   layers:
   - Default
   - TransparentFX

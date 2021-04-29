@@ -9,10 +9,21 @@ public class DaisyBoss : MonoBehaviour
     public int projSpeed;
     public float timeBetween;
 
+    private GameObject enemyHealthBar;
+    private EnemyHealthBar ehb;
+    public int enemyHealth;
+    public int damageTaken;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnProjectiles());
+
+        enemyHealthBar = GameManager.Instance.GetEnemyHealthBar();
+        ehb = enemyHealthBar.GetComponent<EnemyHealthBar>();
+        enemyHealthBar.gameObject.SetActive(true);
+  
+        
     }
 
     // Update is called once per frame
@@ -20,7 +31,33 @@ public class DaisyBoss : MonoBehaviour
     {
         
     }
-    
+    public void DamageEnemy(int damage)
+    {
+        enemyHealth -= damage;
+        ehb.SetHealth(enemyHealth);
+        if (enemyHealth <=0) {
+            enemyHealthBar.SetActive(false);
+            Destroy(gameObject);
+        }
+
+    }
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        
+            if (collision2D.gameObject.CompareTag("Projectile"))
+            {
+                DamageEnemy(50);
+            }
+        
+    }
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.CompareTag("Projectile"))
+        {
+            DamageEnemy(50);
+        }
+    }
+
     IEnumerator SpawnProjectiles()
     {
         for (; ; )
