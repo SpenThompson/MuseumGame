@@ -78,23 +78,23 @@ public class Shrink : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Can't Shrink");
-        ShrinkFunction();
+        //Debug.Log("Can't Shrink");
+        shrinkFunctionCheck();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Can Shrink");
-        Unshrink();
+        //Debug.Log("Can Shrink");
+        unShrinkCheck();
     }
 
-    public void ShrinkFunction()
+    public void shrinkFunctionCheck()
     {
         canShrink = false;
         canUnShrink = true;
 
     }
-    public void Unshrink()
+    public void unShrinkCheck()
     {
         canShrink = true;
         canUnShrink = false;

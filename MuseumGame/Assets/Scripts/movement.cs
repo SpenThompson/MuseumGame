@@ -18,7 +18,7 @@ public class movement : MonoBehaviour
     public float _Deceleration = 2f;
     public float jumpForce = 350;
     public int maxJumps = 1;
-    public int numJumps;
+    private int numJumps;
     private bool isGrounded = true;
 
     public AudioClip[] clips;
@@ -79,6 +79,12 @@ public class movement : MonoBehaviour
         {
             deceleration();
         }
+        /*
+        if(rb2d.velocity.y)
+        {
+
+        }
+        */
 
         rb2d.velocity = new Vector2(_Velocity, rb2d.velocity.y);
         JumpAnimation();
@@ -123,7 +129,7 @@ public class movement : MonoBehaviour
         scaler.x *= -1;
         transform.localScale = scaler;
     }
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts.Length > 0)
@@ -138,8 +144,30 @@ public class movement : MonoBehaviour
             }
         }
     }
-    
+    */
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("grounded");
+        isGrounded = true;
+        numJumps = maxJumps;
+    }
+
     private void JumpAnimation()
+    {
+        if (!isGrounded)
+        {
+            animator.SetBool("isGrounded", false);
+            animator.SetFloat("velocityY", 1 * Mathf.Sign(rb2d.velocity.y));
+        }
+        if (isGrounded)
+        {
+            animator.SetBool("isGrounded", true);
+            animator.SetFloat("velocityY", 0);
+        }
+    }
+
+    private void landAnimation()
     {
         if (!isGrounded)
         {
