@@ -2504,7 +2504,7 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: Spike Scene
+  sceneToLoad: Spawn
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}

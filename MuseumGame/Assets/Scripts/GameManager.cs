@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject enemyHealthBar;
 
+    private bool shrinkButtonPressed = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -197,8 +199,19 @@ public class GameManager : MonoBehaviour
 
     public void ShrinkButtonClicked()
     {
-        Debug.Log("Start Shrink Logic");
-        player.GetComponent<Shrink>().startShrinking();
+        StartCoroutine(ShrinkButtonAction());
+    }
+
+    public IEnumerator ShrinkButtonAction()
+    {
+        if (!shrinkButtonPressed)
+        {
+            shrinkButtonPressed = true;
+            Debug.Log("Start Shrink Logic");
+            player.GetComponent<Shrink>().startShrinking();
+            yield return new WaitForSeconds(1);
+            shrinkButtonPressed = false;
+        }
     }
 
     public void DoubleJumpClicked()
