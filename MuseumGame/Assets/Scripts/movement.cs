@@ -37,7 +37,7 @@ public class movement : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("space") && numJumps > 0)
+        if (Input.GetKeyDown("space") && numJumps > 0 && !GameManager.Instance.isPaused())
         {
             rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             rb2d.AddForce(new Vector2(0, jumpForce));
@@ -48,9 +48,18 @@ public class movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("horizontal", horizontal);
+
+        if (!GameManager.Instance.isPaused())
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
+            animator.SetFloat("horizontal", horizontal);
+        }
+        else
+        {
+            horizontal = 0;
+            vertical = 0;
+        }
         
 
         if (horizontal < 0)

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject healthbar;
     public GameObject startButton;
     public GameObject galleryButton;
+    public GameObject pauseButton;
     public GameObject title;
     public GameObject panel;
 
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
     public GameObject enemyHealthBar;
 
     private bool shrinkButtonPressed = false;
+
+    private bool paused = false;
 
     void Awake()
     {
@@ -176,8 +179,11 @@ public class GameManager : MonoBehaviour
         panel.SetActive(false);
         healthbar.SetActive(true);
         powerUps.SetActive(true);
+        pauseButton.SetActive(true);
         disableAllPowerups();
         LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
+        title.GetComponent<TextMeshProUGUI>().text = "Menu";
+        startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
 
 
     }
@@ -233,14 +239,33 @@ public class GameManager : MonoBehaviour
 
     public void CloseButton()
     {
-        if (scrollSpace.activeSelf) {
-            for (int i = 0; i < galleryArt.Length; i++) {
+        if (scrollSpace.activeSelf)
+        {
+            for (int i = 0; i < galleryArt.Length; i++)
+            {
                 Destroy(galleryArt[i]);
                 Destroy(galleryDialog[i]);
-                scrollSpace.SetActive(false);
+            }
+            scrollSpace.SetActive(false);
+            if (!paused)
+            {
                 hideGalleryButton.SetActive(false);
             }
         }
+        else
+        {
+            paused = false;
+            pauseButton.SetActive(true);
+            hideGalleryButton.SetActive(false);
+            startButton.SetActive(false);
+            galleryButton.SetActive(false);
+            title.SetActive(false);
+            panel.SetActive(false);
+            healthbar.SetActive(true);
+            powerUps.SetActive(true);
+        }
+
+
         artImage.SetActive(false);
         dialogBox.SetActive(false);
     }
@@ -254,6 +279,26 @@ public class GameManager : MonoBehaviour
         hideGalleryButton.SetActive(true);
        /* artImage.GetComponent<Image>().SetNativeSize();
         artImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(-artImage.GetComponent<Image>().sprite.rect.width / 2, 0);*/
+    }
+
+    public void PauseButton()
+    {
+        paused = true;
+        pauseButton.SetActive(false);
+        hideGalleryButton.SetActive(true);
+        startButton.SetActive(true);
+        galleryButton.SetActive(true);
+        title.SetActive(true);
+        panel.SetActive(true);
+        healthbar.SetActive(false);
+        powerUps.SetActive(false);
+        
+
+    }
+
+    public bool isPaused()
+    {
+        return paused;
     }
     public GameObject GetEnemyHealthBar()
     {
