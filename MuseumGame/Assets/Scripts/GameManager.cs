@@ -24,8 +24,17 @@ public class GameManager : MonoBehaviour
     public GameObject panel;
 
     public Sprite[] art;
+    [TextArea]
     public string[] artInfo;
     public GameObject artImage;
+    public GameObject baseImage;
+    public GameObject baseDialog;
+    public GameObject scrollStuff;
+    public GameObject scrollSpace;
+    public GameObject hideGalleryButton;
+    private GameObject[] galleryArt;
+    private GameObject[] galleryDialog;
+   
 
 
     public GameObject powerUps;
@@ -69,10 +78,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /* if (sceneToLoad != "")
-        {
-            LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
-        }*/
+        /* if (sceneToLoad != "")
+         {
+             LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
+         }*/
+        
         sound = GetComponent<AudioSource>();
         GameManager.Instance.enablePowerup(3);
     }
@@ -135,18 +145,26 @@ public class GameManager : MonoBehaviour
     {
         return player;
     }
+
+    //Displays art after in Museum
     public void StartDialog(int index)
     {
         dialogBox.SetActive(true);
         dialogText.GetComponent<TextMeshProUGUI>().text = artInfo[index];
         artImage.SetActive(true);
         artImage.GetComponent<Image>().sprite = art[index];
+        artImage.GetComponent<Image>().SetNativeSize();
+        artImage.GetComponent<RectTransform>().anchoredPosition = new Vector2 (-artImage.GetComponent<Image>().sprite.rect.width / 2, 0);
+        
     }
+    //Hides art in Museum
     public void HideDialog()
     {
         dialogBox.SetActive(false);
         artImage.SetActive(false);
     }
+
+
     public void PlayButton()
     {
         startButton.SetActive(false);
@@ -158,6 +176,65 @@ public class GameManager : MonoBehaviour
         LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
 
 
+    }
+    public void GalleryButton()
+    {
+        scrollSpace.SetActive(true);
+        hideGalleryButton.SetActive(true);
+
+        float scrollStuffSize = 0;
+
+        galleryArt = new GameObject[art.Length];
+        galleryDialog = new GameObject[artInfo.Length];
+
+
+        for (int i = 0; i < art.Length;i++) {
+            scrollStuffSize += (300 + 20);
+            GameObject b = Instantiate(baseImage);
+            b.transform.SetParent(scrollStuff.transform,false);
+            b.GetComponent<Image>().sprite = art[i];
+            b.GetComponent<Image>().SetNativeSize();
+            galleryArt[i] = b;
+        }
+        scrollStuff.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollStuff.GetComponent<RectTransform>().sizeDelta.x, scrollStuffSize );
+        GameObject temp = null;
+        float totDist = 0;
+        for (int i = 0; i < galleryArt.Length; i++) {
+            float sx = (-scrollStuff.GetComponent<RectTransform>().sizeDelta.x / 2) + (150);
+            float b;
+            
+            if (i == 0)
+            {
+
+                 b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2)- (art[i].rect.height/2);
+
+            }
+            else
+            {
+                totDist += (300 + 20);
+                b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) - (150) - (totDist);
+            }
+            galleryArt[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(sx, b);
+            temp = galleryArt[i];
+        }
+        for (int i = 0; i < artInfo.Length; i++) {
+            GameObject d = Instantiate(baseDialog);
+            d.transform.SetParent(scrollStuff.transform,false);
+            d.GetComponent<RectTransform>().anchoredPosition = new Vector2((scrollStuff.GetComponent<RectTransform>().sizeDelta.x / 2) - (150), galleryArt[i].GetComponent<RectTransform>().anchoredPosition.y);
+            d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text = artInfo[i];
+            galleryDialog[i] = d;
+        }
+        scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y/2) + 150);
+    }
+
+    public void HideGallery()
+    {
+        for (int i = 0; i < galleryArt.Length; i++) {
+            Destroy(galleryArt[i]);
+            Destroy(galleryDialog[i]);
+            scrollSpace.SetActive(false);
+            hideGalleryButton.SetActive(false);
+        }
     }
     public GameObject GetEnemyHealthBar()
     {
