@@ -2031,8 +2031,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1101410979}
   - component: {fileID: 1101410978}
-  - component: {fileID: 1101410977}
   - component: {fileID: 1101410976}
+  - component: {fileID: 1101410977}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -2075,9 +2075,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1101410975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2121bebb79696c742bd6ac9f9a701c81, type: 3}
+  m_Script: {fileID: 11500000, guid: b211c5a33678e544f8a025eda8fe81eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 3
 --- !u!212 &1101410978
 SpriteRenderer:
   m_ObjectHideFlags: 0

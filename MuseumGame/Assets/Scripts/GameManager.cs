@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject dialogText;
     public GameObject healthbar;
     public GameObject startButton;
+    public GameObject galleryButton;
     public GameObject title;
     public GameObject panel;
 
@@ -34,8 +35,10 @@ public class GameManager : MonoBehaviour
     public GameObject hideGalleryButton;
     private GameObject[] galleryArt;
     private GameObject[] galleryDialog;
-   
 
+    public Sprite[] powerupSprites;
+    [TextArea]
+    public string[] powerupInfo;
 
     public GameObject powerUps;
     public GameObject gliderPowerupButton;
@@ -168,6 +171,7 @@ public class GameManager : MonoBehaviour
     public void PlayButton()
     {
         startButton.SetActive(false);
+        galleryButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
         healthbar.SetActive(true);
@@ -227,14 +231,29 @@ public class GameManager : MonoBehaviour
         scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y/2) + 150);
     }
 
-    public void HideGallery()
+    public void CloseButton()
     {
-        for (int i = 0; i < galleryArt.Length; i++) {
-            Destroy(galleryArt[i]);
-            Destroy(galleryDialog[i]);
-            scrollSpace.SetActive(false);
-            hideGalleryButton.SetActive(false);
+        if (scrollSpace.activeSelf) {
+            for (int i = 0; i < galleryArt.Length; i++) {
+                Destroy(galleryArt[i]);
+                Destroy(galleryDialog[i]);
+                scrollSpace.SetActive(false);
+                hideGalleryButton.SetActive(false);
+            }
         }
+        artImage.SetActive(false);
+        dialogBox.SetActive(false);
+    }
+
+    public void PowerupReceived(int powerupIndex)
+    {
+        dialogBox.SetActive(true);
+        dialogText.GetComponent<TextMeshProUGUI>().text = "Congratulations! You received a new powerup! Click the powerup icon on the Powerup Pallet to activate the powerup. " + powerupInfo[powerupIndex];
+        artImage.SetActive(true);
+        artImage.GetComponent<Image>().sprite = powerupSprites[powerupIndex];
+        hideGalleryButton.SetActive(true);
+       /* artImage.GetComponent<Image>().SetNativeSize();
+        artImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(-artImage.GetComponent<Image>().sprite.rect.width / 2, 0);*/
     }
     public GameObject GetEnemyHealthBar()
     {

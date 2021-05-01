@@ -9595,8 +9595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bd09e5b49bf4584bee75d619e80b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: BossRoom
-  whereTo: {x: 15.28, y: -1.97, z: 0}
+  LevelName: Spawn
+  whereTo: {x: 0, y: 0, z: 0}
 --- !u!19719996 &277851820
 TilemapCollider2D:
   m_ObjectHideFlags: 0
