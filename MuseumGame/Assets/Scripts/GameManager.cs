@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     public GameObject scrollSpace;
     public GameObject hideGalleryButton;
     private GameObject[] galleryArt;
-    public bool[] enabledArt;
     private GameObject[] galleryDialog;
 
     public Sprite[] powerupSprites;
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private bool paused = false;
 
-    private bool[] artActivated;
+    public bool[] artActivated;
 
     void Awake()
     {
@@ -100,15 +99,9 @@ public class GameManager : MonoBehaviour
          }*/
         
         sound = GetComponent<AudioSource>();
-        enabledArt = new bool[art.Length];
         //GameManager.Instance.enablePowerup(3);
         //GameManager.Instance.enablePowerup(3);
-        artActivated = new bool[art.Length];
-
-        for (int i = 0; i < art.Length; i++)
-        {
-            artActivated[i] = false;
-        }
+        artActivated = new bool[art.Length]; //new bool[] always starts off as false
     }
 
     // Update is called once per frame

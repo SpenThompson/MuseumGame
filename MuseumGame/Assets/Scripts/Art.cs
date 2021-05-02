@@ -5,17 +5,21 @@ using UnityEngine;
 public class Art : MonoBehaviour
 {
     public int index;
-
+    public SpriteRenderer spriteRenderer;
+    public BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().enabled = GameManager.Instance.IsArtActivated(index);
+        var status = GameManager.Instance.IsArtActivated(index);
+        spriteRenderer.enabled = status;
+        collider.enabled = status;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
