@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     private bool paused = false;
 
+    private bool[] artActivated;
+
     void Awake()
     {
         if (Instance == null)
@@ -98,6 +100,13 @@ public class GameManager : MonoBehaviour
         
         sound = GetComponent<AudioSource>();
         //GameManager.Instance.enablePowerup(3);
+        GameManager.Instance.enablePowerup(3);
+        artActivated = new bool[art.Length];
+
+        for (int i = 0; i < art.Length; i++)
+        {
+            artActivated[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -190,6 +199,9 @@ public class GameManager : MonoBehaviour
         disableAllPowerups();
         player.SetActive(true);
         LoadLevel(sceneToLoad, positionToLoad);
+        disableAllPowerups();
+        LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
+        player.SetActive(true);
         title.GetComponent<TextMeshProUGUI>().text = "Menu";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
 
