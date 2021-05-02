@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Museum
-  whereTo: {x: 43.36597, y: -3.07, z: 0}
+  whereTo: {x: 120.11, y: -4.03, z: 0}
 --- !u!19719996 &612235269
 TilemapCollider2D:
   m_ObjectHideFlags: 0

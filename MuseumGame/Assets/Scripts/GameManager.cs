@@ -113,9 +113,6 @@ public class GameManager : MonoBehaviour
         {
             sound.Play();
         }
-        if (Input.GetKeyDown(KeyCode.Q)){
-            ShrinkButtonClicked();
-        }
     }
 
     public void LoadLevel(string levelName, Vector3 whereTo)
