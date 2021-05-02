@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour
         disableAllPowerups();
         player.SetActive(true);
         LoadLevel(sceneToLoad, positionToLoad);
-        title.GetComponent<TextMeshProUGUI>().text = "Paused";
+        title.GetComponent<TextMeshProUGUI>().text = "Menu";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
 
 
