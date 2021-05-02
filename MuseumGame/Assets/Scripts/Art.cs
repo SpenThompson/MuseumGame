@@ -16,6 +16,8 @@ public class Art : MonoBehaviour
     void Update()
     {
         GetComponent<SpriteRenderer>().enabled = GameManager.Instance.IsArtActivated(index);
+        GetComponent<Collider2D>().enabled = GameManager.Instance.IsArtActivated(index);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

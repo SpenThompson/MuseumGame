@@ -16,7 +16,8 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GetComponent<SpriteRenderer>().enabled = GameManager.Instance.IsArtActivated(artIndex);
+        GetComponent<Collider2D>().enabled = GameManager.Instance.IsArtActivated(artIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
