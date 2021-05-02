@@ -8,7 +8,6 @@ public class Glider : MonoBehaviour
     [SerializeField]
     private float m_FallSpeed = 0f;
 
-    private Animator animator;
 
     /// <summary>
     /// 
@@ -20,7 +19,6 @@ public class Glider : MonoBehaviour
     void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,11 +27,6 @@ public class Glider : MonoBehaviour
         if (IsGliding && m_Rigidbody2D.velocity.y < 0f && Mathf.Abs(m_Rigidbody2D.velocity.y) > m_FallSpeed)
         {
             m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, Mathf.Sign(m_Rigidbody2D.velocity.y) * m_FallSpeed);
-            animator.SetBool("isGliding", true);
-        }
-        else
-        {
-            animator.SetBool("isGliding", false);
         }
     }
 
