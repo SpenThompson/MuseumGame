@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupPickup : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
-    public int index;
+    public int artIndex;
+    public int powerupIndex;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,8 @@ public class PowerupPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        GameManager.Instance.enablePowerup(index);
-        GameManager.Instance.PowerupReceived(index);
+        GameManager.Instance.enablePowerup(powerupIndex);
+        GameManager.Instance.ArtReceived(artIndex, powerupIndex);
         Destroy(gameObject);
     }
 }

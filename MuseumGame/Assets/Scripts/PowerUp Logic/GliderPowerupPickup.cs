@@ -20,7 +20,7 @@ public class GliderPowerupPickup : MonoBehaviour
     {
         Debug.Log("Glider Powerup Obtained");
         GameManager.Instance.enablePowerup(0);
-        GameManager.Instance.PowerupReceived(0);
+       // GameManager.Instance.PowerupReceived(0);
         Destroy(gameObject);
     }
 }

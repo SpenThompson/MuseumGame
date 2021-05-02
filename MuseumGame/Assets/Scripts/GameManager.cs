@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public Sprite[] powerupSprites;
     [TextArea]
     public string[] powerupInfo;
+    private int powerIndex = 5;
 
     public GameObject powerUps;
     public GameObject gliderPowerupButton;
@@ -251,6 +252,14 @@ public class GameManager : MonoBehaviour
             {
                 hideGalleryButton.SetActive(false);
             }
+        } else if (powerIndex != 5) {
+            dialogBox.SetActive(true);
+            dialogText.GetComponent<TextMeshProUGUI>().text = "Congratulations! You received a new powerup! Click the powerup icon on the Powerup Pallet to activate the powerup. " + powerupInfo[powerIndex];
+            artImage.SetActive(true);
+            artImage.GetComponent<Image>().sprite = powerupSprites[powerIndex];
+            artImage.GetComponent<RectTransform>().sizeDelta = new Vector2(300,300);
+            hideGalleryButton.SetActive(true);
+            powerIndex = 5;
         }
         else
         {
@@ -263,20 +272,17 @@ public class GameManager : MonoBehaviour
             panel.SetActive(false);
             healthbar.SetActive(true);
             powerUps.SetActive(true);
+            artImage.SetActive(false);
+            dialogBox.SetActive(false);
         }
-
-
-        artImage.SetActive(false);
-        dialogBox.SetActive(false);
     }
 
-    public void PowerupReceived(int powerupIndex)
+    public void ArtReceived(int artIndex, int powerupIndex)
     {
-        dialogBox.SetActive(true);
-        dialogText.GetComponent<TextMeshProUGUI>().text = "Congratulations! You received a new powerup! Click the powerup icon on the Powerup Pallet to activate the powerup. " + powerupInfo[powerupIndex];
-        artImage.SetActive(true);
-        artImage.GetComponent<Image>().sprite = powerupSprites[powerupIndex];
         hideGalleryButton.SetActive(true);
+        StartDialog(artIndex);
+        powerIndex = powerupIndex;
+        
        /* artImage.GetComponent<Image>().SetNativeSize();
         artImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(-artImage.GetComponent<Image>().sprite.rect.width / 2, 0);*/
     }
