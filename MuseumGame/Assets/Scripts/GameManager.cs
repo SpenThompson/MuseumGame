@@ -300,10 +300,15 @@ public class GameManager : MonoBehaviour
     {
         hideGalleryButton.SetActive(true);
         StartDialog(artIndex);
+        artActivated[artIndex] = true;
         powerIndex = powerupIndex;
         
        /* artImage.GetComponent<Image>().SetNativeSize();
         artImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(-artImage.GetComponent<Image>().sprite.rect.width / 2, 0);*/
+    }
+    public bool IsArtActivated(int artIndex)
+    {
+        return artActivated[artIndex];
     }
 
     public void PauseButton()

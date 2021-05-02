@@ -15,7 +15,7 @@ public class Art : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<SpriteRenderer>().enabled = GameManager.Instance.IsArtActivated(index);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
