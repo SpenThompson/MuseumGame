@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            GameManager.Instance.LoadLevel("Spawn", new Vector3(0,0,0));
+            GameManager.Instance.LoadLevel(GameManager.Instance.sceneToLoad, GameManager.Instance.positionToLoad);
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
         }
