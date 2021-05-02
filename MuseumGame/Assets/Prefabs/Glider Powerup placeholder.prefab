@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3406909610842081608}
   - component: {fileID: 3406909610842081615}
   - component: {fileID: 3406909610842081610}
+  - component: {fileID: 980241772855821407}
   m_Layer: 0
   m_Name: Glider Powerup placeholder
   m_TagString: GliderPowerup
@@ -109,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &980241772855821407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3406909610842081614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b211c5a33678e544f8a025eda8fe81eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artIndex: 7
+  powerup: 0
