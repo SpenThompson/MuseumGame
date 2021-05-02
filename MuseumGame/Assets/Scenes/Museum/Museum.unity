@@ -13842,63 +13842,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1404422570
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.722578
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.2699764
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081608, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406909610842081614, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
-      propertyPath: m_Name
-      value: Glider Powerup placeholder
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 017d2509132c9428fbed8092b26dfaba, type: 3}
 --- !u!1 &1620187170
 GameObject:
   m_ObjectHideFlags: 0
@@ -87626,7 +87569,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8843438201003174072, guid: 74bd19f26d283402f9ba1d330e1c1e96, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8843438201003174072, guid: 74bd19f26d283402f9ba1d330e1c1e96, type: 3}
       propertyPath: m_LocalPosition.x
