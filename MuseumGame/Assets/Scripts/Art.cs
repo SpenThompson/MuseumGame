@@ -5,13 +5,15 @@ using UnityEngine;
 public class Art : MonoBehaviour
 {
     public int index;
-    public SpriteRenderer spriteRenderer;
-    public BoxCollider2D collider;
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<BoxCollider2D>();
+        spriteRenderer.enabled = false;
+        collider.enabled = false;
     }
 
     // Update is called once per frame
