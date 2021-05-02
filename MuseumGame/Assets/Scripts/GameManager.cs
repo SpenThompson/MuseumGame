@@ -67,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     private bool paused = false;
 
+    private bool[] artActivated;
+
     void Awake()
     {
         if (Instance == null)
@@ -100,6 +102,13 @@ public class GameManager : MonoBehaviour
         sound = GetComponent<AudioSource>();
         enabledArt = new bool[art.Length];
         //GameManager.Instance.enablePowerup(3);
+        //GameManager.Instance.enablePowerup(3);
+        artActivated = new bool[art.Length];
+
+        for (int i = 0; i < art.Length; i++)
+        {
+            artActivated[i] = false;
+        }
     }
 
     // Update is called once per frame
