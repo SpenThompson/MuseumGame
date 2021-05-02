@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
         disableAllPowerups();
         player.SetActive(true);
         LoadLevel(sceneToLoad, positionToLoad);
-        title.GetComponent<TextMeshProUGUI>().text = "Menu";
+        title.GetComponent<TextMeshProUGUI>().text = "Paused";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
 
 
@@ -285,6 +285,7 @@ public class GameManager : MonoBehaviour
             powerUps.SetActive(true);
             artImage.SetActive(false);
             dialogBox.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 
@@ -315,8 +316,7 @@ public class GameManager : MonoBehaviour
         healthbar.SetActive(false);
         powerUps.SetActive(false);
         HideDialog();
-
-
+        Time.timeScale = 0;
 
     }
 
