@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     private AudioSource sound;
     public string sceneToLoad = "";
+    public Vector3 positionToLoad = new Vector3(0.0f, 0.0f, 0.0f);
 
     public AudioClip[] music;
 
@@ -182,7 +183,8 @@ public class GameManager : MonoBehaviour
         powerUps.SetActive(true);
         pauseButton.SetActive(true);
         disableAllPowerups();
-        LoadLevel(sceneToLoad, new Vector3(0, 0, 0));
+        player.SetActive(true);
+        LoadLevel(sceneToLoad, positionToLoad);
         title.GetComponent<TextMeshProUGUI>().text = "Menu";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
 

@@ -190,7 +190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &176759823
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3428,6 +3428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 374150667840124763, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 374150667840124766, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3890,6 +3894,7 @@ MonoBehaviour:
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
   sceneToLoad: Museum
+  positionToLoad: {x: 15.422754, y: -3.08, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}

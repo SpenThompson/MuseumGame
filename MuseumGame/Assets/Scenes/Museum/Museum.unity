@@ -9563,7 +9563,7 @@ GameObject:
   - component: {fileID: 277851820}
   - component: {fileID: 277851819}
   m_Layer: 0
-  m_Name: Entrance
+  m_Name: ToPlantLevelSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9596,7 +9596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Spawn
-  whereTo: {x: 0, y: 0, z: 0}
+  whereTo: {x: 0.96064043, y: -1.96, z: 0}
 --- !u!19719996 &277851820
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -9925,7 +9925,7 @@ GameObject:
   - component: {fileID: 993848335}
   - component: {fileID: 993848334}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: ToDogLevelSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
