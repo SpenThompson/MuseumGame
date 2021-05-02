@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         
         sound = GetComponent<AudioSource>();
         //GameManager.Instance.enablePowerup(3);
-        GameManager.Instance.enablePowerup(3);
+        //GameManager.Instance.enablePowerup(3);
         artActivated = new bool[art.Length];
 
         for (int i = 0; i < art.Length; i++)
