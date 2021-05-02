@@ -19,7 +19,7 @@ public class ShrinkPowerup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Shrink Powerup Obtained");
-        GameManager.Instance.enablePowerup(3);
+        GameManager.Instance.enablePowerup(Powerup.Shrink);
         Destroy(gameObject);
     }
 }

@@ -19,7 +19,7 @@ public class GliderPowerupPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Glider Powerup Obtained");
-        GameManager.Instance.enablePowerup(0);
+        GameManager.Instance.enablePowerup(Powerup.Glider);
        // GameManager.Instance.PowerupReceived(0);
         Destroy(gameObject);
     }

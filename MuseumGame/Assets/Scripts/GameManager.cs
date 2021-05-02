@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public GameObject canvas;
+    public GameObject foregroundCanvas;
+    public GameObject backgroundCanvas;
+
     public GameObject spriteToFade;
     public GameObject events;
     public GameObject player;
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
     public Sprite[] powerupSprites;
     [TextArea]
     public string[] powerupInfo;
-    private int powerIndex = 5;
+    private Powerup powerIndex = Powerup.Other;
 
     public GameObject powerUps;
     public GameObject gliderPowerupButton;
@@ -70,14 +72,17 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(canvas);
+            DontDestroyOnLoad(foregroundCanvas);
+            DontDestroyOnLoad(backgroundCanvas);
             DontDestroyOnLoad(events);
             DontDestroyOnLoad(player);
         }
         else
         {
             Destroy(gameObject);
-            Destroy(canvas);
+            Destroy(foregroundCanvas);
+            Destroy(backgroundCanvas);
+
             Destroy(events);
             Destroy(player);
             Destroy(powerUps);
@@ -92,7 +97,7 @@ public class GameManager : MonoBehaviour
          }*/
         
         sound = GetComponent<AudioSource>();
-        GameManager.Instance.enablePowerup(3);
+        //GameManager.Instance.enablePowerup(3);
     }
 
     // Update is called once per frame
@@ -170,11 +175,14 @@ public class GameManager : MonoBehaviour
     {
         dialogBox.SetActive(false);
         artImage.SetActive(false);
+        //hideGalleryButton.SetActive(false);
+
     }
 
 
     public void PlayButton()
     {
+        paused = false;
         startButton.SetActive(false);
         galleryButton.SetActive(false);
         title.SetActive(false);
@@ -254,14 +262,14 @@ public class GameManager : MonoBehaviour
             {
                 hideGalleryButton.SetActive(false);
             }
-        } else if (powerIndex != 5) {
+        } else if (powerIndex != Powerup.Other) {
             dialogBox.SetActive(true);
-            dialogText.GetComponent<TextMeshProUGUI>().text = "Congratulations! You received a new powerup! Click the powerup icon on the Powerup Pallet to activate the powerup. " + powerupInfo[powerIndex];
+            dialogText.GetComponent<TextMeshProUGUI>().text = "Congratulations! You received a new powerup! Click the powerup icon on the Powerup Pallet to activate the powerup. " + powerupInfo[(int) powerIndex];
             artImage.SetActive(true);
-            artImage.GetComponent<Image>().sprite = powerupSprites[powerIndex];
+            artImage.GetComponent<Image>().sprite = powerupSprites[(int) powerIndex];
             artImage.GetComponent<RectTransform>().sizeDelta = new Vector2(300,300);
             hideGalleryButton.SetActive(true);
-            powerIndex = 5;
+            powerIndex = Powerup.Other;
         }
         else
         {
@@ -279,7 +287,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ArtReceived(int artIndex, int powerupIndex)
+    public void ArtReceived(int artIndex, Powerup powerupIndex)
     {
         hideGalleryButton.SetActive(true);
         StartDialog(artIndex);
@@ -300,7 +308,9 @@ public class GameManager : MonoBehaviour
         panel.SetActive(true);
         healthbar.SetActive(false);
         powerUps.SetActive(false);
-        
+        HideDialog();
+
+
 
     }
 
@@ -323,11 +333,12 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void enablePowerup(int powerupID)
+    public void enablePowerup(Powerup powerupID)
     {
-        if (powerupID >= 0 && powerupID <= 4)
+        print("Enabling powerup " + (int)powerupID);
+        if (powerupID >= 0 && powerupID!=Powerup.Other)
         {
-            var powerup = powerUps.gameObject.transform.GetChild(powerupID);
+            var powerup = powerUps.gameObject.transform.GetChild((int) powerupID);
             powerup.gameObject.SetActive(true);
         }
     }

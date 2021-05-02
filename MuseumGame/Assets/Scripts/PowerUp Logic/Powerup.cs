@@ -1,8 +1,10 @@
 ﻿using System;
-public enum Powerup
+public enum Powerup:int
 {
-    Glider,
-    DoubleJump,
-    HealthUp,
-    Shrink
+    Glider=0,
+    Shrink=1,
+    DoubleJump = 2,
+    Box=3,
+    Other=4,
+
 }

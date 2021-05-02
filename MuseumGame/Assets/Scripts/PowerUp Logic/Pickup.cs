@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public int artIndex;
-    public int powerupIndex;
+    public Powerup powerup;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,8 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        GameManager.Instance.enablePowerup(powerupIndex);
-        GameManager.Instance.ArtReceived(artIndex, powerupIndex);
+        GameManager.Instance.enablePowerup(powerup);
+        GameManager.Instance.ArtReceived(artIndex,powerup);
         Destroy(gameObject);
     }
 }
