@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canUnShrink: 1
-  canShrink: 0
   isShrunk: 0
   minRbSize: {x: 0, y: 0, z: 0}
   minColSize: {x: 0, y: 0}

@@ -39,7 +39,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("glider.IsGliding" + glider.IsGliding);
         animator.SetBool("isGliding", glider.IsGliding);
 
         if (Input.GetKeyDown("space") && numJumps > 0 && !GameManager.Instance.isPaused())
