@@ -31,7 +31,7 @@ public class blockPush : MonoBehaviour
         {
             blockrb2d = collision.collider.GetComponent<Rigidbody2D>();
             force = blockrb2d.velocity * pushPower;
-            rb2d.AddForceAtPosition(force, );
+            rb2d.AddForceAtPosition(force, collision.GetContact(0).point);
         }
     }
 }
