@@ -21,6 +21,8 @@ public class movement : MonoBehaviour
     private int numJumps;
     private bool isGrounded = true;
 
+    private Glider glider;
+
     public AudioClip[] clips;
     private AudioSource a;
 
@@ -31,11 +33,14 @@ public class movement : MonoBehaviour
         numJumps = maxJumps;
         animator = GetComponent<Animator>();
         a = GetComponent<AudioSource>();
+        glider = GetComponent<Glider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("glider.IsGliding" + glider.IsGliding);
+        animator.SetBool("isGliding", glider.IsGliding);
 
         if (Input.GetKeyDown("space") && numJumps > 0 && !GameManager.Instance.isPaused())
         {
