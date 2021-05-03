@@ -192,6 +192,8 @@ public class GameManager : MonoBehaviour
         powerUps.SetActive(true);
         pauseButton.SetActive(true);
         disableAllPowerups();
+        artActivated = new bool[artActivated.Length]; //Resets to [false,...]
+
         player.SetActive(true);
         LoadLevel(sceneToLoad, positionToLoad);
         title.GetComponent<TextMeshProUGUI>().text = "Paused";
@@ -316,8 +318,7 @@ public class GameManager : MonoBehaviour
         healthbar.SetActive(false);
         powerUps.SetActive(false);
         HideDialog();
-
-
+        Time.timeScale = 0;
 
     }
 
