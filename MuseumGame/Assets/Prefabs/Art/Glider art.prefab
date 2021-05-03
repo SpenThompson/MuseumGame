@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8843438201003174078}
   - component: {fileID: 8843438201003174079}
   m_Layer: 0
-  m_Name: Scarecrow
+  m_Name: Glider art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71938390b65010447bd9357a6450359c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b73779098dd1e74aaf64aec51eb65ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4d5b992474f984fa6c9f579b861848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 7
+  index: 8
