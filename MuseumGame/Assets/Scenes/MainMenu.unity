@@ -4001,7 +4001,7 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: Museum
+  sceneToLoad: DogTunnel
   positionToLoad: {x: 15.422754, y: -3.08, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
@@ -4017,7 +4017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874083435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9123116, y: 1.4806347, z: -2.1588247}
+  m_LocalPosition: {x: 38.29, y: 0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
