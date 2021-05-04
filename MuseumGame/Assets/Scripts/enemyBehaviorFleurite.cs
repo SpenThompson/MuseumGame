@@ -23,6 +23,7 @@ public class enemyBehaviorFleurite : MonoBehaviour
     {
         Collider2D coll = collision.collider;
 
+        //Bouncing on Fleurite
         if (coll.name == "Player")
         {
             Vector3 conPoint = collision.contacts[0].point;
@@ -32,8 +33,13 @@ public class enemyBehaviorFleurite : MonoBehaviour
             bool sideCheck = (conPoint.x > center.x - 0.1) && (conPoint.x < center.x + 0.1);
             if (top && sideCheck)
             {
-                currentHealth = 0;
+                currentHealth -= 10;
             }
+        }
+        //Getting shot
+        if (coll.name == "PaintProjectile" || coll.name == "Projectile")
+        {
+            currentHealth -= 5;
         }
     }
 }
