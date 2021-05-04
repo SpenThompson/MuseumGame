@@ -4001,7 +4001,7 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: Museum
+  sceneToLoad: Spawn
   positionToLoad: {x: 15.422754, y: -3.08, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
