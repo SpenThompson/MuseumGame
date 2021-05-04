@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public GameObject baseDialog;
     public GameObject scrollStuff;
     public GameObject scrollSpace;
-    public GameObject hideGalleryButton;
+    public GameObject closeButton;
     private GameObject[] galleryArt;
     private GameObject[] galleryDialog;
 
@@ -195,16 +195,19 @@ public class GameManager : MonoBehaviour
         artActivated = new bool[artActivated.Length]; //Resets to [false,...]
 
         player.SetActive(true);
+        Time.timeScale = 1; // Fixes infinite loading bug
         LoadLevel(sceneToLoad, positionToLoad);
         title.GetComponent<TextMeshProUGUI>().text = "Paused";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
+        closeButton.SetActive(false);//Remove gallery button
+
 
 
     }
     public void GalleryButton()
     {
         scrollSpace.SetActive(true);
-        hideGalleryButton.SetActive(true);
+        closeButton.SetActive(true);
 
         float scrollStuffSize = 0;
 
@@ -263,7 +266,7 @@ public class GameManager : MonoBehaviour
             scrollSpace.SetActive(false);
             if (!paused)
             {
-                hideGalleryButton.SetActive(false);
+                closeButton.SetActive(false);
             }
         } else if (powerIndex != Powerup.Other) {
             dialogBox.SetActive(true);
@@ -271,14 +274,14 @@ public class GameManager : MonoBehaviour
             artImage.SetActive(true);
             artImage.GetComponent<Image>().sprite = powerupSprites[(int) powerIndex];
             artImage.GetComponent<RectTransform>().sizeDelta = new Vector2(300,300);
-            hideGalleryButton.SetActive(true);
+            closeButton.SetActive(true);
             powerIndex = Powerup.Other;
         }
         else
         {
             paused = false;
             pauseButton.SetActive(true);
-            hideGalleryButton.SetActive(false);
+            closeButton.SetActive(false);
             startButton.SetActive(false);
             galleryButton.SetActive(false);
             title.SetActive(false);
@@ -293,7 +296,7 @@ public class GameManager : MonoBehaviour
 
     public void ArtReceived(int artIndex, Powerup powerupIndex)
     {
-        hideGalleryButton.SetActive(true);
+        closeButton.SetActive(true);
         StartDialog(artIndex);
         artActivated[artIndex] = true;
         powerIndex = powerupIndex;
@@ -310,7 +313,7 @@ public class GameManager : MonoBehaviour
     {
         paused = true;
         pauseButton.SetActive(false);
-        hideGalleryButton.SetActive(true);
+        closeButton.SetActive(true);
         startButton.SetActive(true);
         galleryButton.SetActive(true);
         title.SetActive(true);

@@ -3978,7 +3978,7 @@ MonoBehaviour:
   baseDialog: {fileID: 3367381689256731763, guid: 70cd530c6dffee4498f4893d4eb450c8, type: 3}
   scrollStuff: {fileID: 909612975}
   scrollSpace: {fileID: 392211211}
-  hideGalleryButton: {fileID: 176759822}
+  closeButton: {fileID: 176759822}
   powerupSprites:
   - {fileID: 21300000, guid: b5b2b00149700420cb91ce2e6cd30049, type: 3}
   - {fileID: 21300000, guid: fedbd5825a33346fa96498465bb740e7, type: 3}
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: NewDogSpawn
+  sceneToLoad: Museum
   positionToLoad: {x: 15.422754, y: -3.08, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
