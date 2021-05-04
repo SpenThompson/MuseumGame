@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/DogLevel/NewDogSpawn.unity
     guid: 1c28d00a557254e3190c3e183bf6c295
   - enabled: 1
+    path: Assets/Scenes/Winter/WinterBoss.unity
+    guid: 26926253d0f25404ca3bb3b2ac323d5d
+  - enabled: 1
     path: Assets/Scenes/DogLevel/DogTunnel.unity
     guid: 364cd064779a8433fa06f589ff076342
   m_configObjects: {}
