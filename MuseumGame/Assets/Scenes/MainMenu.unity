@@ -3518,6 +3518,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6440678766209195335, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
+      propertyPath: canPush
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9001604349646828647, guid: e9268c7f81b604f459302eb8b45a432e, type: 3}
       propertyPath: m_IsTrigger
       value: 1

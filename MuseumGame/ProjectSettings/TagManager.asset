@@ -13,6 +13,7 @@ TagManager:
   - Projectile
   - EnemyPlatform
   - OneWay
+  - Block
   layers:
   - Default
   - TransparentFX

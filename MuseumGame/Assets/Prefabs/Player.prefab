@@ -354,4 +354,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c416ae7ea2da5744d9889ff703db9e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePushed: 0
+  canPush: 1
+  pushPower: 1
