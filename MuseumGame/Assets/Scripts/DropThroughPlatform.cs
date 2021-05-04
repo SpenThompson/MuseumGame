@@ -21,7 +21,7 @@ public class DropThroughPlatform : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && (Input.GetAxisRaw("Vertical") < 0)){
             TogglePlatform();
-            Invoke("TogglePlatform", 0.5f);
+            Invoke("TogglePlatform", .75f);
         }
     }
     public void TogglePlatform()
