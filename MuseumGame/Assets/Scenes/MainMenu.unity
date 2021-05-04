@@ -128,14 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3367381690712633762, guid: 70cd530c6dffee4498f4893d4eb450c8, type: 3}
   m_PrefabInstance: {fileID: 3367381690770450957}
   m_PrefabAsset: {fileID: 0}
---- !u!222 &127032242
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924144075}
-  m_CullTransparentMesh: 1
 --- !u!1 &154104103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,7 +3641,7 @@ RectTransform:
   - {fileID: 1034874536}
   - {fileID: 1590398591}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3794,7 +3786,7 @@ MonoBehaviour:
   galleryButton: {fileID: 799432636}
   pauseButton: {fileID: 1056557235}
   title: {fileID: 655160807}
-  panel: {fileID: 0}
+  panel: {fileID: 1433247954}
   art:
   - {fileID: 21300000, guid: deedbb5422c478745935018027d67381, type: 3}
   - {fileID: 21300000, guid: 75c6d563c059ce6479f8e283b6b3e852, type: 3}
@@ -4008,8 +4000,8 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: WinterBoss
-  positionToLoad: {x: 0, y: 0, z: 0}
+  sceneToLoad: Museum
+  positionToLoad: {x: 15.422754, y: -3.08, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}
@@ -4029,37 +4021,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1924144075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1924144076}
-  - component: {fileID: 127032242}
-  m_Layer: 0
-  m_Name: Recovery GameObject (127032242)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1924144076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924144075}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1941456385
 GameObject:
