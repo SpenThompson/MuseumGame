@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject healthbar;
     public GameObject startButton;
     public GameObject galleryButton;
+    public GameObject helpButton;
     public GameObject pauseButton;
     public GameObject title;
     public GameObject panel;
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
         paused = false;
         startButton.SetActive(false);
         galleryButton.SetActive(false);
+        helpButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
         healthbar.SetActive(true);
@@ -203,6 +205,7 @@ public class GameManager : MonoBehaviour
         title.GetComponent<TextMeshProUGUI>().text = "Paused";
         startButton.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = "Restart";
         closeButton.SetActive(false);//Remove gallery button
+        HelpButton();
 
 
 
@@ -266,13 +269,74 @@ public class GameManager : MonoBehaviour
         scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y/2) + 150);
     }
 
+    public void HelpButton()
+    {
+        scrollSpace.SetActive(true);
+        closeButton.SetActive(true);
+
+        float scrollStuffSize = 0;
+
+        string[] helpStuff = new string[9];
+        helpStuff[0] = "OH NO! The Art is Going Wild!\nCollect Every Piece of Art Before They Get Completely Out of Control.";
+        helpStuff[1] = "-Move With the Arrow Keys\n-Jump With Space\n-Fire Projectile With E\n-Avoid Enemy Projectiles and Other Possible Dangers";
+        helpStuff[2] = "Some Paintings Come with Unique Powerups the Grant You Special Abilities:";
+        helpStuff[3] = "The Glider Powerup allows you to glide through the air and travel farther before landing";
+        helpStuff[4] = "The Shrink Powerup shrinks you so you can fit in small places. Deactivate the powerup to return to normal size";
+        helpStuff[5] = "The Double Jump Powerup allows you to jump twice before landing";
+        helpStuff[6] = "The Box Stack Powerup allows you to move certain boxes to your convinience, providing cover from enemies";
+        helpStuff[7] = "The HealthUp powerup increases your max health";
+        helpStuff[8] = "Check out the Gallery for Information on the Art as well as to view which pieces of Art you have found!";
+
+        galleryDialog = new GameObject[helpStuff.Length];
+        galleryArt = new GameObject[helpStuff.Length];
+        
+
+
+        for (int i = 0; i < helpStuff.Length; i++)
+        {
+            scrollStuffSize += (300);
+
+            GameObject d = Instantiate(baseDialog);
+            d.transform.SetParent(scrollStuff.transform, false);
+            d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text = helpStuff[i];
+            galleryDialog[i] = d;
+            galleryArt[i] = d;
+        }
+        scrollStuff.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollStuff.GetComponent<RectTransform>().sizeDelta.x, scrollStuffSize);
+        GameObject temp = null;
+        float totDist = 0;
+        for (int i = 0; i < helpStuff.Length; i++)
+        {
+            float sx = (-scrollStuff.GetComponent<RectTransform>().sizeDelta.x / 2) + (300);
+            float b;
+
+            if (i == 0)
+            {
+
+                b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) - (150);
+
+            }
+            else
+            {
+                totDist += (300);
+                b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) - (150) - (totDist);
+            }
+            galleryDialog[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(sx, b);
+            temp = galleryDialog[i];
+        }
+        
+        scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) + 150);
+
+    }
     public void CloseButton()
     {
         if (scrollSpace.activeSelf)
         {
-            for (int i = 0; i < galleryArt.Length; i++)
+            for (int i = 0; i < galleryDialog.Length; i++)
             {
+                
                 Destroy(galleryArt[i]);
+                
                 Destroy(galleryDialog[i]);
             }
             scrollSpace.SetActive(false);
@@ -296,6 +360,7 @@ public class GameManager : MonoBehaviour
             closeButton.SetActive(false);
             startButton.SetActive(false);
             galleryButton.SetActive(false);
+            helpButton.SetActive(false);
             title.SetActive(false);
             panel.SetActive(false);
             healthbar.SetActive(true);
@@ -328,6 +393,7 @@ public class GameManager : MonoBehaviour
         closeButton.SetActive(true);
         startButton.SetActive(true);
         galleryButton.SetActive(true);
+        helpButton.SetActive(true);
         title.SetActive(true);
         panel.SetActive(true);
         healthbar.SetActive(false);
