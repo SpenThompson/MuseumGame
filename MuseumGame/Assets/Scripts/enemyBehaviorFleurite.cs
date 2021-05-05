@@ -6,11 +6,12 @@ public class enemyBehaviorFleurite : MonoBehaviour
 {
     private Rigidbody2D RB2D;
     private Animator animation;
+    private SpriteRenderer twoDren;
 
     public bool faceRight = false;
     public int currentHealth;
     public int maxHP = 10;
-    // -1 for left, 0 for stationary, 1 for right
+    // -1 for right, 0 for stationary, 1 for left
     public int goDirection = 0;
 
     void Start()
@@ -18,6 +19,7 @@ public class enemyBehaviorFleurite : MonoBehaviour
         currentHealth = maxHP;
         RB2D = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
+        twoDren = GetComponent<SpriteRenderer>();
         animation.SetInteger("hp", currentHealth);
     }
 
@@ -25,8 +27,11 @@ public class enemyBehaviorFleurite : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            goDirection = 0;
             animation.SetInteger("hp", currentHealth);
-            Object.Destroy(this.gameObject);
+            if (twoDren.sprite.name == "Fleurite_die_13") {
+                Object.Destroy(this.gameObject);
+            }
         }
 
         if (goDirection == -1)
