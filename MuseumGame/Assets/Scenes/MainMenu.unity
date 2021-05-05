@@ -4000,7 +4000,7 @@ MonoBehaviour:
   - Once activated, the Double Jump Powerup allows you to jump twice before landing.
   - Once activated, the Box Stack Powerup allows you to move certain boxes to your
     convinience, providing cover from enemies.
-  - Once activated, Who knows?
+  - Once activated, your max health is raised.
   powerUps: {fileID: 1159971422}
   gliderPowerupButton: {fileID: 526643974}
   boxPowerupButton: {fileID: 2130100238}
@@ -4008,8 +4008,8 @@ MonoBehaviour:
   shrinkPowerupButton: {fileID: 974869911}
   otherPowerupButton: {fileID: 847247611}
   powerupText: {fileID: 829770868}
-  sceneToLoad: WinterBoss
-  positionToLoad: {x: 0, y: 0, z: 0}
+  sceneToLoad: WinterOne
+  positionToLoad: {x: -7, y: -2, z: 0}
   music:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}
