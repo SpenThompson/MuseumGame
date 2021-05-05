@@ -4014,6 +4014,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f29919963390ff24fa1ae468277b309e, type: 3}
   - {fileID: 8300000, guid: 327636dbdcb895b478ac95086f383d8a, type: 3}
   - {fileID: 8300000, guid: f14b1787c8db6e448ab9eff57b9db745, type: 3}
+  - {fileID: 8300000, guid: f9797dcc532eae74e8edd02036a48cc4, type: 3}
   enemyHealthBar: {fileID: 1545666262}
   artActivated: 
 --- !u!4 &1874083438

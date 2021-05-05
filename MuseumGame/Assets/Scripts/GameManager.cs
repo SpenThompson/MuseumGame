@@ -111,7 +111,10 @@ public class GameManager : MonoBehaviour
             sound.clip = music[0];
         } else if (SceneManager.GetActiveScene().name == "Museum") {
             sound.clip = music[1];
-        } else if (SceneManager.GetActiveScene().name == "DogLevelSpawn" || SceneManager.GetActiveScene().name == "DogBoss") {
+        } else if (SceneManager.GetActiveScene().name == "DogLevelSpawn" || SceneManager.GetActiveScene().name == "DogBoss" || SceneManager.GetActiveScene().name == "DogTunnel" || SceneManager.GetActiveScene().name == "NewDogSong" || SceneManager.GetActiveScene().name == "ShrinkPowerup" || SceneManager.GetActiveScene().name == "ToShrinkPowerup") {
+            sound.clip = music[2];
+        } else if (SceneManager.GetActiveScene().name == "WinterOne" || SceneManager.GetActiveScene().name == "WinterTwo" || SceneManager.GetActiveScene().name == "WinterThree" || SceneManager.GetActiveScene().name == "WinterFour" || SceneManager.GetActiveScene().name == "WinterBoss") {
+            sound.clip = music[3];
         }
         if (!sound.isPlaying)
         {
