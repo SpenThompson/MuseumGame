@@ -5,6 +5,7 @@ public enum Powerup:int
     Shrink=1,
     DoubleJump = 2,
     Box=3,
-    Other=4,
+    Health=4,
+    Other=5,
 
 }
