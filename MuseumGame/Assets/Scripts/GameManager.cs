@@ -249,6 +249,10 @@ public class GameManager : MonoBehaviour
             d.transform.SetParent(scrollStuff.transform,false);
             d.GetComponent<RectTransform>().anchoredPosition = new Vector2((scrollStuff.GetComponent<RectTransform>().sizeDelta.x / 2) - (150), galleryArt[i].GetComponent<RectTransform>().anchoredPosition.y);
             d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text = artInfo[i];
+            if (artActivated[i])
+            {
+                d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text += "/n COLLECTED";
+            }
             galleryDialog[i] = d;
         }
         scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y/2) + 150);
