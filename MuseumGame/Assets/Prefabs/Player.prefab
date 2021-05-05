@@ -306,7 +306,7 @@ MonoBehaviour:
   _MaxAcc: 3
   _MinAcc: -3
   _Deceleration: 0.9
-  jumpForce: 350
+  jumpForce: 390
   maxJumps: 1
   clips:
   - {fileID: 8300000, guid: dc86b6ab05351b641899e04f315a0a5a, type: 3}
@@ -355,4 +355,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPush: 1
-  pushPower: 1
+  pushPower: 2

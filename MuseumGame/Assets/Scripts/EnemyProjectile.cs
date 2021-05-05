@@ -26,7 +26,7 @@ public class EnemyProjectile : MonoBehaviour
             //player takes damage
             Destroy(gameObject);
         }
-        else if (collider.gameObject.CompareTag("Platform"))
+        else if (collider.gameObject.CompareTag("Platform") || collider.gameObject.CompareTag("Block"))
         {
             Destroy(gameObject);
         }
