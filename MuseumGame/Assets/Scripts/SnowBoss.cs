@@ -9,6 +9,9 @@ public class SnowBoss : MonoBehaviour
     public int projSpeed;
     public float firerate;
     public float size;
+    public float newPos;
+    private bool isFlipped;
+    
 
     private GameObject enemyHealthBar;
     private EnemyHealthBar ehb;
@@ -37,7 +40,12 @@ public class SnowBoss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(enemyHealth);
+        Debug.Log(ehb.maxHealth/2);
+        if (enemyHealth <= ehb.maxHealth / 2)
+        {
+            isFlipped = true;
+        }
     }
     public void DamageEnemy(int damage)
     {
@@ -61,6 +69,8 @@ public class SnowBoss : MonoBehaviour
         if (collision2D.gameObject.CompareTag("Player"))
         {
             DamageEnemy(damageTaken);
+            collision2D.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(collision2D.gameObject.GetComponent<Rigidbody2D>().velocity.x, 0);
+            collision2D.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 200));
         }
 
     }
@@ -82,7 +92,17 @@ public class SnowBoss : MonoBehaviour
 
                 GameObject clone = Instantiate(projectile, transform.position, transform.rotation);
                 clone.transform.localScale = new Vector3(size, size, 0);
+
+            if (isFlipped)
+            {
+                clone.transform.Rotate(new Vector3(0, 0, 0));
+                transform.position = new Vector2(newPos, transform.position.y);
+                transform.localScale = new Vector3(-1 *size, transform.localScale.y, transform.localScale.z);
+            }
+            else
+            {
                 clone.transform.Rotate(new Vector3(0, 0, 180));
+            }
                 clone.GetComponent<Rigidbody2D>().velocity = clone.transform.right * projSpeed;
 
             

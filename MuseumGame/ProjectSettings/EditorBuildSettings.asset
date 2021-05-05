@@ -51,6 +51,18 @@ EditorBuildSettings:
     path: Assets/Scenes/DogLevel/DogTunnel.unity
     guid: 364cd064779a8433fa06f589ff076342
   - enabled: 1
+    path: Assets/Scenes/Winter/WinterOne.unity
+    guid: c8c9e94520c909f4583e4ac8df067c9e
+  - enabled: 1
+    path: Assets/Scenes/Winter/WinterTwo.unity
+    guid: 7617ec397629d4643b72435512e8bcc1
+  - enabled: 1
+    path: Assets/Scenes/Winter/WinterThree.unity
+    guid: 2fc180fe8bcd00c47a966e8635c2fd38
+  - enabled: 1
+    path: Assets/Scenes/Winter/WinterFour.unity
+    guid: 9bca48a6900ad4e4c93785ec0d34ec14
+  - enabled: 1
     path: Assets/Scenes/DogLevel/ToShrinkPowerup.unity
     guid: 9eff3e3f8a3f744c1b0a05bc190a6ed4
   - enabled: 1
