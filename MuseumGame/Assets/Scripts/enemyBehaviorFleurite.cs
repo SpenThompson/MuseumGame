@@ -8,9 +8,6 @@ public class enemyBehaviorFleurite : MonoBehaviour
     private Animator animation;
 
     public bool faceRight = false;
-    public Sprite idleSpr;
-    public Sprite idleToWalkSpr;
-    public Sprite walkSpr;
     public int currentHealth;
     public int maxHP = 10;
     // -1 for left, 0 for stationary, 1 for right
@@ -21,20 +18,21 @@ public class enemyBehaviorFleurite : MonoBehaviour
         currentHealth = maxHP;
         RB2D = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
+        animation.SetInteger("hp", currentHealth);
     }
 
     void Update()
     {
         if (currentHealth <= 0)
         {
+            animation.SetInteger("hp", currentHealth);
             Object.Destroy(this.gameObject);
         }
 
         if (goDirection == -1)
         {
             RB2D.velocity = new Vector2(0, RB2D.velocity.y);
-            RB2D.AddForce(new Vector2(-10, 0));
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = walkSpr;
+            RB2D.AddForce(new Vector2(10, 0));
             if (!faceRight)
             {
                 flip();
@@ -42,8 +40,7 @@ public class enemyBehaviorFleurite : MonoBehaviour
         } else if (goDirection == 1)
         {
             RB2D.velocity = new Vector2(0, RB2D.velocity.y);
-            RB2D.AddForce(new Vector2(10, 0));
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = walkSpr;
+            RB2D.AddForce(new Vector2(-10, 0));
             if (faceRight)
             {
                 flip();
@@ -51,8 +48,8 @@ public class enemyBehaviorFleurite : MonoBehaviour
         } else
         {
             RB2D.velocity = new Vector2(0, RB2D.velocity.y);
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = idleSpr;
         }
+        animation.SetInteger("direction", goDirection);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

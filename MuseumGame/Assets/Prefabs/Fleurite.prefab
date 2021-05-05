@@ -146,9 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceRight: 0
-  idleSpr: {fileID: 839485298840569679, guid: afff24b045e9819489f94ece7452c414, type: 3}
-  idleToWalkSpr: {fileID: -7480050777925010642, guid: 3a2d6dbc45caaf64b96dbfb549d86773, type: 3}
-  walkSpr: {fileID: -1350550296119621197, guid: 15dc39ff3f8c42c4f912425d76ce4ec8, type: 3}
   currentHealth: 0
   maxHP: 10
   goDirection: 0
@@ -162,7 +159,7 @@ Animator:
   m_GameObject: {fileID: 7233263653450294866}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 72b112320080b1648b1ba76ff4f51b5e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 49974a3af0f33414da29c4a2d34b7c2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
