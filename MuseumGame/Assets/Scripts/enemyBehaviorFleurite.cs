@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class enemyBehaviorFleurite : MonoBehaviour
 {
+    private Rigidbody2D RB2D;
+    private Animator animation;
+
+    public bool faceRight = false;
+    public Sprite idleSpr;
+    public Sprite idleToWalkSpr;
+    public Sprite walkSpr;
     public int currentHealth;
     public int maxHP = 10;
+    // -1 for left, 0 for stationary, 1 for right
+    public int goDirection = 0;
 
     void Start()
     {
         currentHealth = maxHP;
+        RB2D = GetComponent<Rigidbody2D>();
+        animation = GetComponent<Animator>();
     }
 
     void Update()
@@ -17,6 +28,30 @@ public class enemyBehaviorFleurite : MonoBehaviour
         if (currentHealth <= 0)
         {
             Object.Destroy(this.gameObject);
+        }
+
+        if (goDirection == -1)
+        {
+            RB2D.velocity = new Vector2(0, RB2D.velocity.y);
+            RB2D.AddForce(new Vector2(-10, 0));
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = walkSpr;
+            if (!faceRight)
+            {
+                flip();
+            }
+        } else if (goDirection == 1)
+        {
+            RB2D.velocity = new Vector2(0, RB2D.velocity.y);
+            RB2D.AddForce(new Vector2(10, 0));
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = walkSpr;
+            if (faceRight)
+            {
+                flip();
+            }
+        } else
+        {
+            RB2D.velocity = new Vector2(0, RB2D.velocity.y);
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = idleSpr;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,5 +76,12 @@ public class enemyBehaviorFleurite : MonoBehaviour
         {
             currentHealth -= 5;
         }
+    }
+    private void flip()
+    {
+        faceRight = !faceRight;
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
     }
 }

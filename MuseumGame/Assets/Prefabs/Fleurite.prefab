@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435848034843665024}
   - component: {fileID: 5256489848431985566}
+  - component: {fileID: 1563425259513313213}
   - component: {fileID: 2539354091152453239}
   - component: {fileID: 8355915839876452973}
   - component: {fileID: 2971217357562388041}
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1563425259513313213
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233263653450294866}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &2539354091152453239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,9 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c466376263ece74e945ff0a343015ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faceRight: 0
+  idleSpr: {fileID: 839485298840569679, guid: afff24b045e9819489f94ece7452c414, type: 3}
+  idleToWalkSpr: {fileID: -7480050777925010642, guid: 3a2d6dbc45caaf64b96dbfb549d86773, type: 3}
+  walkSpr: {fileID: -1350550296119621197, guid: 15dc39ff3f8c42c4f912425d76ce4ec8, type: 3}
   currentHealth: 0
   maxHP: 10
-  upper_collider: {fileID: 0}
+  goDirection: 0
 --- !u!95 &2971217357562388041
 Animator:
   serializedVersion: 3
