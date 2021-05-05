@@ -254,7 +254,12 @@ public class GameManager : MonoBehaviour
             d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text = artInfo[i];
             if (artActivated[i])
             {
-                d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text += "/n COLLECTED";
+                d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text += "\nFOUND";
+            }
+            else
+            {
+                d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text += "\nNOT FOUND";
+
             }
             galleryDialog[i] = d;
         }
