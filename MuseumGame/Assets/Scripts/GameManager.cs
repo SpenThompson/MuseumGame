@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject startButton;
     public GameObject galleryButton;
     public GameObject helpButton;
+    public GameObject creditButton;
     public GameObject pauseButton;
     public GameObject title;
     public GameObject panel;
@@ -191,6 +192,7 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(false);
         galleryButton.SetActive(false);
         helpButton.SetActive(false);
+        creditButton.SetActive(false);
         title.SetActive(false);
         panel.SetActive(false);
         healthbar.SetActive(true);
@@ -328,6 +330,58 @@ public class GameManager : MonoBehaviour
         scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) + 150);
 
     }
+    public void CreditButton()
+    {
+        scrollSpace.SetActive(true);
+        closeButton.SetActive(true);
+
+        float scrollStuffSize = 0;
+
+        string[] helpStuff = new string[1];
+        helpStuff[0] = "Credits:\nMatthew Kalahiki\nSpencer Thompson\nTrey Hoopchuck\nIvy Jackson\nMars Paton\nPowerup Font: https://www.1001freefonts.com/karmafuture.font \nMenu Font: https://www.1001freefonts.com/roses-are-ff0000.font \nSprites https://opengameart.org/content/minimalist-pixel-tileset \nhttps://opengameart.org/content/abandonauts-8x8-tile-assets";
+        
+
+        galleryDialog = new GameObject[helpStuff.Length];
+        galleryArt = new GameObject[helpStuff.Length];
+
+
+
+        for (int i = 0; i < helpStuff.Length; i++)
+        {
+            scrollStuffSize += (300);
+
+            GameObject d = Instantiate(baseDialog);
+            d.transform.SetParent(scrollStuff.transform, false);
+            d.transform.Find("Box").GetComponent<TextMeshProUGUI>().text = helpStuff[i];
+            galleryDialog[i] = d;
+            galleryArt[i] = d;
+        }
+        scrollStuff.GetComponent<RectTransform>().sizeDelta = new Vector2(scrollStuff.GetComponent<RectTransform>().sizeDelta.x, scrollStuffSize);
+        GameObject temp = null;
+        float totDist = 0;
+        for (int i = 0; i < helpStuff.Length; i++)
+        {
+            float sx = (-scrollStuff.GetComponent<RectTransform>().sizeDelta.x / 2) + (300);
+            float b;
+
+            if (i == 0)
+            {
+
+                b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) - (150);
+
+            }
+            else
+            {
+                totDist += (300);
+                b = (scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) - (150) - (totDist);
+            }
+            galleryDialog[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(sx, b);
+            temp = galleryDialog[i];
+        }
+
+        scrollStuff.GetComponent<RectTransform>().anchoredPosition = new Vector2(scrollStuff.GetComponent<RectTransform>().anchoredPosition.x, (-scrollStuff.GetComponent<RectTransform>().sizeDelta.y / 2) + 150);
+
+    }
     public void CloseButton()
     {
         if (scrollSpace.activeSelf)
@@ -361,6 +415,7 @@ public class GameManager : MonoBehaviour
             startButton.SetActive(false);
             galleryButton.SetActive(false);
             helpButton.SetActive(false);
+            creditButton.SetActive(false);
             title.SetActive(false);
             panel.SetActive(false);
             healthbar.SetActive(true);
@@ -394,6 +449,7 @@ public class GameManager : MonoBehaviour
         startButton.SetActive(true);
         galleryButton.SetActive(true);
         helpButton.SetActive(true);
+        creditButton.SetActive(true);
         title.SetActive(true);
         panel.SetActive(true);
         healthbar.SetActive(false);
