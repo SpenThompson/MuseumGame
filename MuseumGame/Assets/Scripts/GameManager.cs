@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Spawn" || SceneManager.GetActiveScene().name == "EnemyTunnel" || SceneManager.GetActiveScene().name == "RouteToTower" || SceneManager.GetActiveScene().name == "Tower" || SceneManager.GetActiveScene().name == "PathToBoss" || SceneManager.GetActiveScene().name == "BossRoom") {
             sound.clip = music[0];
-        } else if (SceneManager.GetActiveScene().name == "Museum") {
+        } else if (SceneManager.GetActiveScene().name == "Museum" || SceneManager.GetActiveScene().name == "MainMenu") {
             sound.clip = music[1];
         } else if (SceneManager.GetActiveScene().name == "DogLevelSpawn" || SceneManager.GetActiveScene().name == "DogBoss" || SceneManager.GetActiveScene().name == "DogTunnel" || SceneManager.GetActiveScene().name == "NewDogSong" || SceneManager.GetActiveScene().name == "ShrinkPowerup" || SceneManager.GetActiveScene().name == "ToShrinkPowerup") {
             sound.clip = music[2];
